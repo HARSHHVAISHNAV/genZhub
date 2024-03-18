@@ -1,5 +1,5 @@
 # genZhub
-    "Introducing ZConnect, the ultimate Gen Z-centric social media platform that seamlessly integrates the latest trends, dynamic content, and authentic connections. Designed with a user-first approach, ZConnect caters to the diverse interests of Generation Z, offering a visually immersive experience with short-form videos, interactive polls, and real-time collaboration features.
+    "Introducing genZhub, the ultimate Gen Z-centric social media platform that seamlessly integrates the latest trends, dynamic content, and authentic connections. Designed with a user-first approach, genZhub caters to the diverse interests of Generation Z, offering a visually immersive experience with short-form videos, interactive polls, and real-time collaboration features.
     The platform's algorithm is finely tuned to understand and prioritize users' preferences, ensuring a personalized feed that reflects their evolving interests. 
-    Embracing inclusivity, ZConnect encourages self-expression through customizable profiles and supports a variety of content formats, from viral challenges to thought-provoking discussions.
-    With privacy and digital well-being at its core, ZConnect empowers Gen Z to forge meaningful connections, stay informed about global happenings, and shape the future of social media engagement."
+    Embracing inclusivity, genZhub encourages self-expression through customizable profiles and supports a variety of content formats, from viral challenges to thought-provoking discussions.
+    With privacy and digital well-being at its core, genZhub empowers Gen Z to forge meaningful connections, stay informed about global happenings, and shape the future of social media engagement."
