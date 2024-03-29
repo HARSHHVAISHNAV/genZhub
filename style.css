@@ -2,13 +2,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2C3E50;
+  background-color: white;
+  flex-direction: column;
+  margin: 0px;
 }
 .navbar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
-  background-color: #f2f2f2;
+  background-color:#2C3E50 ;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -16,20 +18,22 @@ body {
    display: flex;
    font-size: 50px;
    justify-content: center;
+   align-items: center;
+   color: #fffdfd;
 }
 .navelements{
     display: flex;
     justify-content: space-around;
+    /* border: 2px solid red; */
 }
 .navone {
     display: flex;
     font-size: 18px;
-    color: #333;
+    color: #fffdfd;
     text-decoration: none;
-    padding: 10px;
+    padding: 2rem;
     border-radius: 5px;
-    background-color: #f2f2f2;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.9s ease;
 }
 
 .navone:hover {
@@ -38,3 +42,54 @@ body {
 .navone:active {
     background-color: #ccc;
 }
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#dashboardimg{
+  width: 3rem;
+  height: 3rem;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/* .blogs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    width: 100%;
+    height:max-content;
+} */
