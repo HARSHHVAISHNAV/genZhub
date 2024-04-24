@@ -1,21 +1,31 @@
 body {
+  display: flex;
   margin: 0px;
   /* background-color: #003362; Fallback color */
-  background-color: #718dc4;
+  background-color: #718dc49e;
+  /* background: linear-gradient(to bottom, #1154B8, #D6E4FF); */
   /* Use linear gradient as background */
+  overflow-x: hidden;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #title{
     font-size: 40px;
     color: black;
+    padding: 0px;
+    margin: 0px;
 }
 .navbar-tech {
+    z-index: 1;
     width: 100%;
     display: flex;
-    position:fixed;
+    position: fixed;
     justify-content: space-between;
+    align-items: center;
     border: 2px solid black;
     flex-direction: row;
+    background-color:#061c4d ;
   }
   .joint{
     display: flex;
@@ -53,6 +63,8 @@ body {
     margin: 15px;
     margin-right: 80px;
     border-radius: 4px;
+    height: 50px;
+    width: 50px;
   }
   
   .dropdown-content {
@@ -60,18 +72,21 @@ body {
     position: absolute; /* Adjust positioning */
     top: 100%; /* Position below the button */
     left: 0;
+    right: 100%;
     background-color: rgba(35, 27, 27, 0.499);
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    height:700px;
+    width: 200px;
   }
   
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
     display: flex;
     justify-content: center;
     padding: 20px;
+    margin-right: 50px;
   }
   
   .dropdown-content a:hover {
@@ -81,3 +96,54 @@ body {
   .show {
     display: block;
   }
+  /* css for widgets starts from here */
+  .widgets{
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid black; */
+    width: 1000px;
+    height: 100%;
+    margin-top: 85px;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Adjust as needed */
+    align-items: flex-start;
+  }
+  .widget{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    width: 400px;
+    height: 400px;
+    margin: 40px;
+    background-color: #454c5572;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+  
+
+  /* css for dashboard starts from here */
+  .dashboard{
+    z-index: 3;
+    display: flex;
+    margin-top: 85px;
+    border: 2px solid black;
+    width: 300px;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+  } 
+  .polls{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    margin-top: 200px;
+    position: fixed;
+    background-color: #6a7da380;
+  }
+   #titletwo{
+    position: fixed;
+    margin-top: 0px;
+   }
