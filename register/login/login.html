@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            width: 150px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+        }
+        #texta{
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+        #textb{
+            /* border: 2px solid black; */
+            text-align: center;
+        }
+        #textc{
+            /* border: 2px solid black; */
+            text-align: center;
+            padding-left: 550px;
+        }
+        .samebox{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 id="texta">Hello User!</h1>
+        <h1 id="textb">Welcome to genZhub!</h1>
+        <h3 id="textc">~where tommorow's tech meets today's issues.</h3>
+    </div>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+                <div class="samebox">
+                    <h3>Don't have an account?</h3>
+                    <a href="register.html">Register</a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
