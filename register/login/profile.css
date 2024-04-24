@@ -1,0 +1,111 @@
+ body{
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+ }
+ /* Navbar styles */
+ .navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    margin: 0px;
+    height: 70px;
+    justify-content: space-around;
+}
+.photo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+/* written content begins here */
+.lit-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 80px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+/* Profile section styles */
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.profile-section .profile {
+    display: flex;
+    width: 35%;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid black;
+    flex-direction: column;
+    align-items: center;
+}
+.main-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+.posts{
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid black; */
+    font-size: 20px;
+    padding: 5px;
+}
+.num-posts{
+    border-right: 2px solid black;
+    padding: 5px;
+}
+.points{
+    padding: 5px;
+}
+ .edit-details {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 2px solid black;
+}
+.save-cancel{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    height: 50px;
+    width: 100%;
+}
+.save-cancel button{
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 30px;
+    font-size: 20px;
+}
+/* form starts here  */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#aboutme{
+    text-decoration: underline;
+}
