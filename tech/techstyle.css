@@ -1,0 +1,87 @@
+body{
+    margin: 0px;
+    background: linear-gradient(to bottom, #003362, #D6E4FF, #000000);
+}
+#title{
+    font-size: 40px;
+    color: black;
+}
+.navbar-tech {
+    width: 100%;
+    display: flex;
+    position:fixed;
+    justify-content: space-between;
+    border: 2px solid black;
+    flex-direction: row;
+  }
+  .joint{
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    /* padding: 10px; */
+    margin: 0px;
+  }
+/* profile tag starts from here */
+.profiletag {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
+  }
+#profileimage{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+/* navmenu starts from here */
+/* Dropdown container */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+#menuimage{
+    width: 50px;
+    height: 50px;
+   }
+  
+  /* Dropdown button */
+.dropdown-button {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    /* background-color: white; */
+    margin: 15px;
+    margin-right: 80px;
+    border-radius: 4px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute; /* Adjust positioning */
+    top: 100%; /* Position below the button */
+    left: 0;
+    background-color: rgba(99, 79, 79, 0.499);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #b1a0a097;
+  }
+  
+  .show {
+    display: block;
+  }
