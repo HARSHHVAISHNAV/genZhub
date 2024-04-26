@@ -3,43 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
-    <title>genZhub</title>
 </head>
 <body>
-    <!-- HTML for navbar -->
     <div class="navbar">
-        <div class="profiletag">
-            <img src="../image/profile.png" alt="" id="profileimage">
+        <div class="title">genZhub</div>
+        <div class="container-elements">
+            <a href="" class="elements">Categories</a>
+            <a href="" class="elements">About Us</a>
+            <a href="" class="elements">Blogs/Forums</a>
         </div>
-        <div class="dropdown-container">
-            <button onclick="toggleDropdown()" class="dropdown-button">
-                <img src="" alt="" id="menuimage">
-            </button>
-            <div id="myDropdown" class="dropdown-content">
-                <a href="#home">Profile</a>
-                <a href="#about">Technology</a>
-                <a href="#contact">Social Issues</a>
-                <a href="#contact">Business</a>
-                <a href="#contact">Home</a>
-                <a href="#contact">Forum/Blogs</a>
-                <a href="#contact">About</a>
-                <a href="#contact">Contact Us</a>
-            </div>
+        <div class="profile">
+            <div id="profile-photo"><img src="" alt=""></div>
+            <button id="account">Profile</button>
         </div>
     </div>
-
-    <!-- HTML for board -->
-    <div class="board">
-        <div class="title">
-            <h1>Welcome to</h1>
-            <h1 id="mtitle">genZhub</h1>
-        </div>
-        <div class="login">
-            <button id="btn1">Login</button>
-            <button id="btn2">Register</button>
-        </div>
-    </div> 
+    <!-- widgets start from here -->
+    <div class="flexbox-widgets">
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div> 
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+    </div>
+    <!-- contact us form -->
+    <div class="contact-us">
+        <h1 id="text">Lets's Get in Touch</h1>
+        <form>
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="name" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">message</label>
+                <textarea name="message" id="message" cols="80" rows="20"></textarea>
+            </div>
+            <button id="contact-button">Get in Touch</button>
+        </form>
+    </div>
+    
 </body>
 </html>

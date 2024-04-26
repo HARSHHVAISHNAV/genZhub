@@ -3,7 +3,7 @@ body {
   margin: 0px;
   /* background-color: #003362; Fallback color */
   background-color: #718dc49e;
-  /* background: linear-gradient(to bottom, #1154B8, #D6E4FF); */
+  background: linear-gradient(to bottom, #011430, #a6c0ec);
   /* Use linear gradient as background */
   overflow-x: hidden;
   flex-direction: row;
@@ -25,7 +25,7 @@ body {
     align-items: center;
     border: 2px solid black;
     flex-direction: row;
-    background-color:#061c4d ;
+    /* background-color:#1154B8 ; */
   }
   .joint{
     display: flex;
@@ -120,8 +120,7 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
   }
-  
-
+ 
   /* css for dashboard starts from here */
   .dashboard{
     z-index: 3;

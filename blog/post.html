@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>genZhub - Post Article</title>
+  <style>
+    /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body{
+    background-color: #f0f4f8;
+    padding: 2rem;
+}
+
+/* Container */
+.container {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.container-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+/* Links */
+.home{
+    color: #3b82f6;
+    color: #2563eb;
+}
+
+/* Form */
+.text{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.inpu-tags{
+    width: 100%;
+    padding: 0.5rem;
+    border-width: 1px;
+    border-color: #cbd5e0;
+    border-radius: 0.375rem;
+    height: 10rem;
+}
+
+/* Button */
+.bg-black {
+  background-color: #000000;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.hover\:bg-zinc-800:hover {
+  background-color: #2d3748;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="container-header">
+      <h1 class="title">genZhub</h1>
+      <a href="#" class="home">Home</a>
+    </header>
+    <h2 class="text mb-4">Post a new article</h2>
+    <form>
+      <div class="mb-4">
+        <input
+          type="text"
+          placeholder="Blog Title"
+          class="input-tags"
+        />
+      </div>
+      <div class="mb-4">
+        <input
+          type="text"
+          placeholder="Image url"
+          class="input-tags"
+        />
+      </div>
+      <div class="mb-4">
+        <textarea
+          placeholder="Blog Content"
+          class="w-full p-2 border border-zinc-300 rounded-md h-40"
+        ></textarea>
+      </div>
+      <button type="submit" class="bg-black text-white px-4 py-2 rounded hover:bg-zinc-800">
+        Post
+      </button>
+    </form>
+  </div>
+</body>
+</html>
+

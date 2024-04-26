@@ -172,7 +172,11 @@
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = result.user;
     console.log(user);
-    window.location.href = "login.html";
+    // set(ref(database,'users/'+ user.uid),{
+    //             email: user.email,  Store the user's email
+    //             displayName: user.displayName,  Store the user's display name
+    //             })
+    window.location.href = "google.html";
     // ...
   }).catch((error) => {
     const errorCode = error.code;
