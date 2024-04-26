@@ -40,9 +40,87 @@
     </div>
     <div class="dashboard">
         <h1 id="titletwo">Technology</h1>
-        <div class="polls"></div>
+        <div class="quiz-container">
+            <h1>Quiz Time!</h1>
+            <div id="question"></div>
+            <div id="options" class="options-container"></div>
+            <button id="submitBtn">Submit</button>
+            <div id="result"></div>
+        </div>
+        </div>
+        
+        
     </div>
     
     <script src="tech.js"></script> 
+
 </body>
+<script>
+    const quizData = [
+    {
+        question: "What is the capital of France?",
+        options: ["Paris", "London", "Rome", "Berlin"],
+        answer: "Paris"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Mars", "Jupiter", "Venus", "Mercury"],
+        answer: "Mars"
+    },
+    {
+        question: "What is the tallest mountain in the world?",
+        options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
+        answer: "Mount Everest"
+    }
+];
+
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const submitButton = document.getElementById('submitBtn');
+const resultElement = document.getElementById('result');
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    const currentQuizData = quizData[currentQuestion];
+    questionElement.innerText = currentQuizData.question;
+
+    optionsElement.innerHTML = '';
+    currentQuizData.options.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.classList.add('option-btn');
+        button.addEventListener('click', selectOption);
+        optionsElement.appendChild(button);
+    });
+}
+
+function selectOption(event) {
+    const selectedOption = event.target.innerText;
+    const currentQuizData = quizData[currentQuestion];
+    if (selectedOption === currentQuizData.answer) {
+        score++;
+    }
+    currentQuestion++;
+
+    if (currentQuestion < quizData.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    questionElement.style.display = 'none';
+    optionsElement.style.display = 'none';
+    submitButton.style.display = 'none';
+    resultElement.innerText = `You scored ${score} out of ${quizData.length}!`;
+}
+
+loadQuestion();
+
+    
+  </script>
+
 </html>
