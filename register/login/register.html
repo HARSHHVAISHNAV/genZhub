@@ -102,7 +102,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
         import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-        // import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
@@ -118,7 +118,7 @@
         messagingSenderId: "893420221934",
         appId: "1:893420221934:web:64e10ccd7212ffc436caff",
         measurementId: "G-W0ELG1XK21",
-        // databaseURL: "https://genzhub-fd763-default-rtdb.firebaseio.com"
+        databaseURL: "https://genzhub-fd763-default-rtdb.firebaseio.com"
         };
     
         // Initialize Firebase
@@ -126,7 +126,7 @@
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         auth.languageCode = 'en';
-        // const database = getDatabase(app);
+        const database = getDatabase();
         console.log(app);
         const provider = new GoogleAuthProvider();
 
@@ -142,10 +142,11 @@
 		    // Signed in 
 		    const user = userCredential.user;
 		    console.log(user);
-            // set(ref(database,'users/'+ user.uid),{
-            //         email: email,
-            //         mobile: mobile
-            //     })
+            set(ref(database,'users/'+ user.uid),{
+                    email: email,
+                    mobile: mobile,
+                    age: age,
+                })
 		    alert("Registration successfully!!");
 		    // ...
 		  })
@@ -158,10 +159,10 @@
 		  });		  		  
 	  });
 	  //----- End
-      function saveAgeToDatabase(userId, age) {
-    const userRef = ref(db, 'users/' + userId);
-    set(userRef, { age: age });
-}
+    //   function saveAgeToDatabase(userId, age) {
+    // const userRef = ref(db, 'users/' + userId);
+    // set(userRef, { age: age });
+//}
 
 
     const google = document.getElementById("google");
