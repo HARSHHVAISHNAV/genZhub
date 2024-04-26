@@ -90,61 +90,66 @@
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-    // import { getDatabase, ref, update } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getDatabase  } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-
+  
     // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-    apiKey: "AIzaSyDeGzNFHeNnDYpO_4bFsUA38BFEqomNeFo",
-    authDomain: "genzhub-fd763.firebaseapp.com",
-    projectId: "genzhub-fd763",
-    storageBucket: "genzhub-fd763.appspot.com",
-    messagingSenderId: "893420221934",
-    appId: "1:893420221934:web:64e10ccd7212ffc436caff",
-    measurementId: "G-W0ELG1XK21",
-    // databaseURL: "https://genzhub-fd763-default-rtdb.firebaseio.com",
-    };
+        apiKey: "AIzaSyDeGzNFHeNnDYpO_4bFsUA38BFEqomNeFo",
+        authDomain: "genzhub-fd763.firebaseapp.com",
+        projectId: "genzhub-fd763",
+        storageBucket: "genzhub-fd763.appspot.com",
+        messagingSenderId: "893420221934",
+        appId: "1:893420221934:web:64e10ccd7212ffc436caff",
+        measurementId: "G-W0ELG1XK21",
 
+    };
+  
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-    // const database = getDatabase(app);
-    console.log(app);
+    const auth = getAuth();
+    const database = getDatabase(app);
+    
 
-    //----- Login code start	  
-    document.getElementById("login").addEventListener("click", function() {
-		  var email =  document.getElementById("email").value;
-		  var password = document.getElementById("password").value;
+document.addEventListener('DOMContentLoaded', (event) => {
+    const loginBtn = document.getElementById('login');
+    const logoutBtn = document.getElementById('logout');
 
-		  signInWithEmailAndPassword(auth, email, password)
-		  .then((userCredential) => {
-		    // Signed in 
-		    const user = userCredential.user;
-		    console.log(user);
-            // const dt = new Date();
-            // update(ref(database, 'users/' + user.uid), {
-            //         last_login: dt,
-                   
-            //     });
-		    alert(" Login successfully!!!");
-		    // document.getElementById('logout').style.display = 'block';
-		    // ...
-		  })
-		  .catch((error) => {
-		    const errorCode = error.code;
-		    const errorMessage = error.message;
-		    console.log(errorMessage);
-		    alert(errorMessage);
-		  });		  		  
-	  });
-	  //----- End
+    login.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                
+                alert('User logged in');
+                window.location.href = "../register.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    });
+
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('User logged out');
+        }).catch((error) => {
+            // An error happened.
+            const errorMessage = error.message;
+            alert(errorMessage);
+        });
+    });
+});
 
 
-</script>
+  </script>
 </html>
