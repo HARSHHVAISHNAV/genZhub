@@ -16,17 +16,19 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+
 .navbar-tech {
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid black;
-    flex-direction: row;
-    /* background-color:#1154B8 ; */
-  }
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  flex-direction: row;
+  /* background-color:#1154B8 ; */
+}
   .joint{
     display: flex;
     flex-direction: row;
@@ -132,16 +134,111 @@ body {
     /* justify-content: space-around; */
     align-items: center;
   } 
-  .polls{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    width: 200px;
-    height: 300px;
-    margin-top: 200px;
-    position: fixed;
-    background-color: #6a7da380;
-  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #007bff; /* Set a consistent blue background color */
+    color: #fff; /* White text color for better contrast */
+    margin: 0; /* Remove default margin */
+    /* padding-top: 10px; /* Add padding to account for fixed navbar */
+}  
+
+
+.quiz-container {
+    max-width: 600px;
+    margin: 80px auto; /* Center the container with more margin */
+    padding: 40px; /* Increase padding for more spacing */
+    text-align: center;
+    border: 1px solid linear-gradient(to bottom, #011430, #a6c0ec);;
+    border-radius: 10px;
+    background-color: linear-gradient(to bottom, #011430, #a6c0ec);; /* White background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow with increased blur */
+}
+
+
+h1 {
+    color: #fff; /* White text color for headings */
+    margin-bottom: 30px; /* Add more space below the heading */
+}
+
+.options-container {
+    margin-top: 30px; /* Increase margin between options */
+}
+
+button {
+    margin-top: 30px; /* Increase top margin for better spacing */
+    padding: 15px 30px; /* Increase button padding for better touch/click targets */
+    background-color: #0056b3; /* Darker blue background for buttons */
+    border-radius: 8px; /* Increase border radius for rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+button:hover {
+    background-color: #003d7f; /* Darken the background on hover */
+}
+
+.option-btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px; /* Add more space between option buttons */
+    padding: 15px; /* Increase button padding for better touch/click targets */
+    background-color: #f0f0f0; /* Light gray background for options */
+    color: #333; /* Dark text color */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Increase border radius for rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.option-btn:hover {
+    background-color: #e0e0e0; /* Darken the background on hover */
+}
+
+
+  /* .polls {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#pollResult {
+    margin-top: 10px;
+    font-weight: bold;
+} */
+
+   
    #titletwo{
     position: fixed;
     margin-top: 0px;
