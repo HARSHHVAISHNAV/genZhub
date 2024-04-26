@@ -46,3 +46,38 @@ const saveMessage = (name, email, message) => {
 const getElementVal = (id) => {
   return document.getElementById(id).value;
 }
+// 
+// 
+// button redirect function starts from here
+document.addEventListener("DOMContentLoaded", function() {
+  // Find the button element by its id
+  var redirectButton = document.getElementById("account");
+
+  // Add a click event listener to the button
+  redirectButton.addEventListener("click", function() {
+      // Redirect the user to another page within the same project
+      window.location.href = "../register/login/profile.html"; // Replace "another-page.html" with the path to your desired page
+  });
+
+  var redirectButtona = document.getElementById("about-us");
+  redirectButtona.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "about.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtond = document.getElementById("about-us-a");
+  redirectButtond.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "about.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonb = document.getElementById("forums");
+  redirectButtonb.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonc = document.getElementById("forums-a");
+  redirectButtonc.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
+});
+ 
+});

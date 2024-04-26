@@ -30,6 +30,8 @@ body{
     text-decoration: none;
     color: black;
     font-weight: bold;
+    background-color: white;
+    border: none;
 }
 .profile{
   display: flex;
@@ -136,3 +138,51 @@ body{
   border-radius: 5px;
 }
 /* ending profile section */
+.group-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+}
+.rectangle-parent{
+  display: flex;
+  /* justify-content: space-around; */
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 90px;
+  padding-right: 90px;
+  background-color: white;
+  border: none;
+  font-size: 20px;
+}
+.information{
+  display: flex;
+  flex-direction: row;
+}
+.contributor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 700px;
+}
+.contacting{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.college-numbe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}

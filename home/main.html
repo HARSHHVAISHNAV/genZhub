@@ -7,50 +7,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars text-white"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <div class="hori-selector">
-              <div class="left"></div>
-              <div class="right"></div>
-            </div>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    <!-- <div class="navbar">
+    
+    <div class="navbar">
         <div class="title">genZhub</div>
         <div class="container-elements">
-            <a href="" class="elements">Categories</a>
-            <a href="" class="elements">About Us</a>
-            <a href="" class="elements">Blogs/Forums</a>
+            <button class="elements">Categories</button>
+            <button class="elements" id="about-us">About Us</button>
+            <button class="elements" id="forums">Forums</button>
         </div>
         <div class="profile">
             <div id="profile-photo"><img src="" alt=""></div>
             <button id="account">Profile</button>
         </div>
-    </div> -->
+    </div>
     <!-- widgets start from here -->
     <div class="flexbox-widgets">
         <div class="widget"></div>
@@ -90,6 +59,36 @@
 
         </form>
     </div>
+    <div class="group-parent">
+      <div class="rectangle-parent">
+        <button class="home">Home</button>
+        <button class="home" id="forums-a">Forums</button>
+        <b class="home">genZhub</b>
+        <button class="home">Contact us</button>
+        <button class="home" id="about-us-a">About us</button>
+      </div>
+      <div class="information">
+        <div class="contributor">
+          <h3>The members of the mini project are:</h3>
+          <h4>Moxita Shah - 51</h4>
+          <h4>Harsh Vaishnav - 58</h4>
+          <h4>Punit Jain - 22</h4>
+          <h4>Neeraj Sawant - 48</h4>
+        </div>
+        <div class="contacting">
+          <h3>Reach us</h3>
+          <div class="college-number">
+            <img class="phone-call" src="https://img.icons8.com/ios/50/000000/phone.png"/>
+            <h4>1234567890</h4>
+          </div>
+          <div class="college-email">
+            <img class="email" src="https://img.icons8.com/ios/50/000000/email.png"/>
+            <h4>sakec@ac.in</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+        
     <!-- <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>  -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./index.js"></script>
