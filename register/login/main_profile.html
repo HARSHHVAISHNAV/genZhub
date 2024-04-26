@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile-main</title>
+    <!-- <link rel="stylesheet" href="./styles.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata:wght@400&display=swap"
+    />
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=SF NS Rounded:wght@700&display=swap"
+    />
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            /* background: conic-gradient(
+                from 180deg at 50% 50%,
+                rgba(238, 206, 163, 0.7) -51.6deg,
+                rgba(153, 207, 238, 0.7) 46.63deg,
+                rgba(253, 220, 226, 0.7) 131.01deg,
+                rgba(250, 235, 206, 0.7) 228.46deg,
+                rgba(238, 206, 163, 0.7) 308.4deg,
+                rgba(153, 207, 238, 0.7) 406.63deg
+            ); */
+            justify-content: stretch;
+            margin: 0px;
+        }
+        .container{
+            margin: 0px;
+            display: flex;
+        }
+        .navbar{
+            order: 1;
+            display: flex;
+            margin: 0px;
+            /* border: 2px solid black; */
+            width: 100%;
+            height: 150px;
+            flex-wrap: wrap;
+            background: #6B705C;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            font-family: var(--font-sf-ns-rounded);
+        }
+        .profile{
+            display: flex;
+            /* border: 2px solid black; */
+            width: 180px;
+            height: 71px;
+            flex-direction: row;
+            margin-left: 40px;
+            /* margin-top: 35px; */
+            align-self: center;
+            font-size: 60px;
+            justify-content: center;
+            justify-content: stretch;
+        }
+        .back{
+            display: flex;
+            margin-top: 5px;
+            margin-left: 40px;
+            /* border: 2px solid black; */
+            width: 40px;
+            height: 40px;
+            align-self: center;
+            /* justify-content: stretch; */
+            /* flex-wrap: wrap; */
+        }
+        
+        .num{
+            display: flex;
+            /* border: 2px solid black; */
+            width: 250px;
+            height: 68px;
+            font-size: 30px;
+        }
+        .num1{
+            display: flex;
+            /* border: 2px solid black; */
+            width: 230px;
+            height: 68px;
+            font-size: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            /* border: 2px solid black;  */
+            width: 600px;
+            height: 250px;
+            align-self: center;
+            justify-content: center;
+            justify-content: stretch;
+            margin: 20px;
+            margin-top: 40px;
+        }
+        .circle{
+            display: flex;
+            border: 2px solid black;
+            height: 50%;
+            width: 20%;
+            top: 6.25%;
+            right: 41.41%;
+            bottom: 67.31%;
+            left: 41.48%;
+            border-radius: 50%;
+            overflow: hidden;
+            justify-content: center;
+            align-self: center;
+        }
+        .mainc{
+            display: flex;
+            /* border: 2px solid black; */
+            align-self: center;
+            width: 500px;
+            height: 100px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .mainc1{
+            display: flex;
+            /* border: 2px solid black; */
+            width: 500px;
+            height: 40px;
+            flex-wrap: wrap;  
+            font-size: 35px;
+            justify-content: center;
+            }
+        .mainc2{
+                display: flex;
+                /* border: 2px solid black; */
+                width: 500px;
+                height: 50px;
+                text-align: center;
+            }
+        #text{
+                text-align: center;
+            }
+        .class{
+                display: flex;
+                /* border: 2px solid black; */
+                width: 200px;
+                height: 50px;
+                font-size: 30px;
+            }
+        .posts{
+                order: 3;
+                display: flex;
+                flex-direction: row;
+                /* border: 2px solid black; */
+                font-size: 30px;
+                padding: 5px;
+                justify-content: center;
+                margin: 20px;
+            }
+        .num-posts{
+                border-right: 2px solid black;
+                padding: 5px;
+            }
+        .points{
+                padding: 5px;
+            }
+        .button-section{
+                order: 4;
+                display: flex;
+                flex-direction: row;
+                /* border: 2px solid black; */
+                justify-content: center;
+                margin: 20px;
+                /* align-items: center; */
+            }
+        .add-post,.logout{
+            display: flex;
+            margin: 10px;
+            padding: 10px 15px;
+            font-weight: bold;
+            color: white;
+            background-color: #6B705C;
+            border-radius: 5px;
+        }
+        .logout-me{
+            display: flex;
+            /* border: 2px solid black; */
+            width: 35px;
+            height: 35px;
+            justify-content: stretch;
+            align-self: center;
+            margin-left: 1000px;
+            border-radius: 50%;
+        }
+        #profile-button{
+            display: flex;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        </style>
+</head>
+<body>
+   
+   <div class="container">
+        <div class="navbar">
+            <div class="back">
+                <img src="photos/bgi3.png" alt="">
+            </div>
+            <div class="profile">
+               <b> genZhub </b>
+            </div>
+            <div class="logout-me">
+                <button><img src="" alt="" id="profile-button"></button>
+            </div>
+        </div>
+   </div>
+   <div class="main">
+        <div class="circle">
+            <img src="photos/bgi2.jpg"  alt="">
+        </div>
+        <div class="mainc">
+            <div class="mainc1">
+                First-Name Last-Name
+            </div>
+            <div class="mainc2">
+                <textarea name="about me" id="" cols="65" rows="10"></textarea>
+            </div>
+        </div>
+   </div>
+
+   <div class="posts">
+    <div class="num-posts">21 <br> posts</div>
+    <div class="points">238 <br> points</div>
+  </div>
+    <div class="button-section">
+        <button class="add-post">Add a post</button>
+        <button class="logout">Log out</button>
+    </div>
+</body>
+</html>
