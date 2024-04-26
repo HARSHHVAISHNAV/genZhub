@@ -74,6 +74,18 @@ body{
     padding-bottom: 0.5rem;
     background-color: #2d3748;
 }
+#blog-content{
+  margin-top: 20px;
+}
+.fileToUpload{
+    background-color: #000000;
+    color: #ffffff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #2d3748;
+}
 
   </style>
 </head>
@@ -84,30 +96,15 @@ body{
       <a href="#" class="home">Home</a>
     </header>
     <h2 class="text mb-4">Post a new article</h2>
-    <form>
-      <div class="mb-4">
-        <input
-          type="text"
-          placeholder="Blog Title"
-          class="input-tags"
-        />
-      </div>
-      <div class="mb-4">
-        <input
-          type="text"
-          placeholder="Image url"
-          class="input-tags"
-        />
-      </div>
-      <div class="mb-4">
-        <textarea
-          placeholder="Blog Content"
-          class="input-tags "
-        ></textarea>
-      </div>
-      <button type="submit" class="submit">
-        Post
-      </button>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="mb-4"><input type="text" placeholder="Blog Title" class="input-tags"/></div>
+      
+        <!-- <div class="mb-4"><input type="text" placeholder="Image url" class="input-tags"/></div> -->
+        <button><input type="file" name="fileToUpload" id="fileToUpload"></button>
+        <input type="submit" value="Upload Image">
+        <div class="mb-4"><textarea placeholder="Blog Content" class="input-tags" id="blog-content"></textarea></div>
+        <button type="submit" class="submit">Post</button>
+    
     </form>
   </div>
 </body>
