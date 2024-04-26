@@ -6,7 +6,7 @@ body {
   background: linear-gradient(to bottom, #011430, #a6c0ec);
   /* Use linear gradient as background */
   overflow-x: hidden;
-  flex-direction: row;
+  flex-direction: row; 
   justify-content: space-between;
 }
 
@@ -196,47 +196,31 @@ button:hover {
 }
 
 
-  /* .polls {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
 button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
-input[type="radio"] {
-    margin-right: 8px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-#pollResult {
-    margin-top: 10px;
-    font-weight: bold;
-} */
 
    
    #titletwo{

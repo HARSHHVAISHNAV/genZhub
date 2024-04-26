@@ -41,16 +41,29 @@
     <div class="dashboard">
         <h1 id="titletwo">Technology</h1>
         <div class="quiz-container">
-            <h1>Quiz Time!</h1>
+            <h1>Quiz Time!/POLLS</h1>
             <div id="question"></div>
             <div id="options" class="options-container"></div>
             <button id="submitBtn">Submit</button>
             <div id="result"></div>
         </div>
+        <div class="container">
+            <h1>What's your favorite color?</h1>
+            <div id="options">
+                <label><input type="radio" name="color" value="Red"> Red</label><br>
+                <label><input type="radio" name="color" value="Blue"> Blue</label><br>
+                <label><input type="radio" name="color" value="Green"> Green</label><br>
+                <label><input type="radio" name="color" value="Yellow"> Yellow</label><br>
+            </div>
+            <button onclick="submitVote()">Vote</button>
+            <div id="result"></div>
+        </div>
+    
         </div>
         
-        
-    </div>
+
+    
+
     
     <script src="tech.js"></script> 
 
@@ -119,6 +132,23 @@ function showResult() {
 }
 
 loadQuestion();
+
+
+function submitVote() {
+    var options = document.getElementsByName('color');
+    var selectedOption;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            selectedOption = options[i].value;
+            break;
+        }
+    }
+    if (selectedOption) {
+        document.getElementById('result').innerHTML = 'You voted for ' + selectedOption + '.';
+    } else {
+        alert('Please select an option before voting.');
+    }
+}
 
     
   </script>
