@@ -79,5 +79,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // Redirect the user to another page within the same project
     window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
 });
+  var redirectButtone = document.getElementById("tech-page");
+  redirectButtone.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../tech/tech.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonf = document.getElementById("busi-page");
+  redirectButtonf.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../business/business.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtong = document.getElementById("social-page");
+  redirectButtong.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../social/social.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonh = document.getElementById("ente-page");
+  redirectButtonh.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../entertainment/enter.html"; // Replace "another-page.html" with the path to your desired page  
+});
  
 });

@@ -3,6 +3,18 @@ body{
   display: flex;
   padding: 0px;
   flex-direction: column;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(rgba(255, 255, 255, 0.179), rgba(255, 255, 255, 0)), url('https://source.unsplash.com/1920x1080/?technology') no-repeat center center fixed;
+  background-size: cover;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+  z-index: -1; /* Ensure overlay is behind content */
 }
 /* CSS FOR NAVABAR */
 .navbar{
@@ -15,14 +27,17 @@ body{
   margin-bottom: 20px;
 }
 .title{
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   margin-left: 10px;
+  color: white;
+  mix-blend-mode: difference; 
 }
 .container-elements{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    ;
 }
 .elements{
     display: flex;
@@ -30,8 +45,11 @@ body{
     text-decoration: none;
     color: black;
     font-weight: bold;
-    background-color: white;
+    background-color: transparent;
     border: none;
+    color: white;
+    mix-blend-mode: difference; 
+    font-size: 18px;
 }
 .profile{
   display: flex;
@@ -54,8 +72,10 @@ body{
     font-weight: bold;
     padding: 0px 10px;
     height: 30px;
-    background-color: white;
+    background-color: transparent;
     border: none;
+    color: white;
+    mix-blend-mode: difference; 
 }
 /* CSS FOR FLEXBOX WIDGETS */
 .flexbox-widgets {
@@ -71,9 +91,11 @@ body{
   width: 400px; /* Adjust width as needed */
   height: 600px; /* Adjust height as needed */
   margin-right: 20px; /* Adjust margin between widgets */
-  background-color: white;
+  background-color: transparent;
   box-shadow: 0 0 10px rgba(99, 90, 90, 0.814);
   border-radius: 10px;
+  color: white;
+  mix-blend-mode: difference; 
 }
 /* Hide scrollbar for Firefox */
 .flexbox-widgets::-moz-scrollbar {
@@ -108,6 +130,8 @@ body{
   /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
   display: flex;
   flex-direction: column;
+  color: white;
+  mix-blend-mode: difference; 
 }
 .form-group {
   margin-bottom: 15px;
@@ -133,7 +157,7 @@ body{
   font-weight: bold;
   justify-content: center;
   align-items: center;
-  background-color: #4E47FF;
+  background-color: transparent;
   color: white;
   border-radius: 5px;
 }
@@ -144,6 +168,8 @@ body{
   align-items: center;
   margin-top: 20px;
   flex-direction: column;
+  color: white;
+  mix-blend-mode: difference; 
 }
 .rectangle-parent{
   display: flex;
@@ -159,9 +185,14 @@ body{
   align-items: center;
   padding-left: 90px;
   padding-right: 90px;
-  background-color: white;
+  background-color: none;
   border: none;
-  font-size: 20px;
+  font-size: 30px;
+}
+.rectangle-parent button{
+  background-color: transparent;
+  color: white;
+  mix-blend-mode: difference; 
 }
 .information{
   display: flex;
