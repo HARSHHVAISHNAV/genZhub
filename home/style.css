@@ -79,6 +79,115 @@ body{
     color: white;
     mix-blend-mode: difference; 
 }
+/* external css */
+#nav-bar
+{
+	position: sticky;
+	top: 0;
+	z-index: 10;
+
+}
+.navbar
+{
+	background-image: linear-gradient(to right, #007AC0, #007AC0)
+	
+
+}
+#Who
+{
+	padding-top: 100px;
+	background-color:  #007AC0;
+	padding-bottom: 40px;
+}
+#search
+{
+	background-color:  #007AC0;
+	padding-left: 250px;
+	padding-bottom: 40px;
+}
+#addi
+{
+	padding-top: 5%;
+	padding-left: 5%;
+	padding-right:5%;
+	padding-bottom: 5%;
+}
+.abcd
+{
+	
+	padding-top: 130px;
+	padding-left: 20px;
+
+}
+#addi2
+{
+	padding-bottom: 50px;
+  margin-left:10px;
+	
+
+}
+.abcd2
+{
+	padding-top: 140px;
+
+	
+}
+
+#addi3
+{
+	padding-top: 30px;
+	padding-left: 30px;
+	
+	padding-bottom: 30px;
+}
+.abcd3
+{
+	padding-top: 80px;
+	padding-left: 40px;
+}
+#addi4
+{
+	padding-top: 30px;
+	margin-left:20px;
+	
+	padding-bottom: 30px
+
+}
+.abcd4
+{
+	margin:center;
+}
+#carouselExampleControls
+{
+	margin-left: 80px;
+	margin-right: 80px;
+}
+#addi5
+{
+	padding-top: 30px;
+	padding-left: 30px;
+	
+	padding-bottom: 30px
+
+}
+.abcd5
+{
+	margin:center;
+}
+ 
+#fotter{background-color: rgb(240, 240, 240);
+	 background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	
+	text-align:center;
+}@media screen and (max-width:1200px){
+  .box{
+    width:40%;
+  }
+}
 /* CSS FOR FLEXBOX WIDGETS */
 .flexbox-widgets {
   display: flex;
@@ -138,6 +247,7 @@ body{
   mix-blend-mode: difference; 
   background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
   backdrop-filter: blur(10px);
+  margin-bottom: 40px;
 }
 .form-group {
   margin-bottom: 15px;
