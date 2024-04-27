@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+    	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    	<link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
 </head>
 <body>
     
@@ -23,6 +29,278 @@
             <button id="account">Profile</button>
         </div>
     </div>
+    <!-- <section id="nav-bar">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEUAeb////8Ab7vc5/IAbbr09/sAdr7r9frC2+0AdL0Acbze6/WWvN1foNEti8gjh8YNfsLL4PCjxuNKl816rtex0OinyOQeg8S82OyFstnV5fIAa7lyqdU9jchams6fxuNJk8vj7/dQagb0AAAE4UlEQVR4nO2da3ezKhBGgSoJxFu8tvZi+///5ME3za3JUeOoRNazP3Z1OewAgyV0YPweuyIIozhhayGJozAodndd2O2P9nmitZK2W/0gUmmd5PsBhmUllO3WjkaJuOwxTKVeW+ddY9qfdhjWkbDdwgkQUf1/ho1Yd/8dkV5z3zBzoQMPiOyOoR+vN8HcomL/r6FfuTFCj8jK/2MYuyVoFONrw8ylIXpAZZeGjTtJ5oxozoa1i4JGsT4ZRq5NwgMyOhqmbnah6cT019DNHmyRB8NS227IbOjyn6FzS+GZdlFkfO/qLGwRe2OYu7fYn1G5MVzPbswYEs527uaZFr1jheOGBQtcnoZmIgYsdHetaJEhi2y3YWYiFttuwszEzO3Fgg33U1qL4Wj9eP6aP0IHUsi82b4MZ1u+Jd4jKUx6yVv5UIQml9Nt73pfd77w6KUOB39BIHVY9z/whv2XN4mfZMWI6C3bZJiiTLYjIxRygm6U1WZkeMPnkMmiPscH2NC3eWU1PjwftEupsv7HdEBWlIQeHNQA4kfIN0RDb+wcPLJ/74nwPiaLXVKQ0o38Iobn/KN7nKoPcoQvSi8K6gfMec/fn/r+8YJHIG3DSHJ4k0+7PmJJyKMnCH2o8gnip13DVKX9D+iFsNOkm/7H9/LaNYjE6wQRmvHbFHrsu8Ylu05D+jQ0707jDcXLBPH9rmzu+f0P6OVlfKqB4SBgSAeGMKQCQzowhCEVGNKBIQypwJAODGFIBYZ0YAhDKjCkA0MYUoEhHRjCkAoM6cAQhlRgSAeGMKQCQzowhCEVGNKBIQypwJAODGFIBYZ0YAhDKjCkA0MYUoEhHRjCkAoM6cAQhlRgSAeGMKQCQzpPbSiI5W/+QShlvYDhFDUVXp+5poK2XBdjfkP1NkEEQnHL+Q0nqU9DqL43v+EUNYa2hBpDCxjKkBygs4iRfUP2Tq2BU1LKRC1hSK7XRvBbxpCYbHxGqki3iCFTn+NfbHbEooLLGDLFxq77JfV6uIUMzQv494h84xcxuRb5YoZM6uQjLbbDKYKQTXBF3HKG7HC93wNMc33hooZWgCEMYWgfGMIQhvaBIQxhaB8YwhCG9oEhDGFoHxjCEIb2gSEMYWgfGMIQhvaBIQxhaB8YwhCG9nHfUNOvku25w9I2upzAkHCH5vzMf5esdZIJDLNJDhHOhajJgtSbwWdG0m/NDp56kDL6xdw/fXer20bGRMPv5x6kBkW7Pz5/5qXiF01R/Hjm1f6Eisf+e9nmewU92CK9tzH/1OIH0xynXwTlZWX9sxnOT12E3pMvE3+QWj/SYPXYrwMAAAAAAOA+ie0GzEzCYttNmJmYRbabMDMRI5QgWgMyZM++Y0tEBaxYyW7RSHTBdo4b7hh3e7moOOO5yxNR5cZwv4p96ZGIvTHksbvrRVtmyxiW7uaa9iCCMeQO9yE/GKauzkSR/hryyM1elBE/GhKKuD4zXn0y5I2LiqLhZ0Oeubfsq4xfGrq3KJ7OWBwNfWIBwmdDVv4fQ+7HLg1UFZ8KhZ8MzVx0J92I7Kx1YWgyqhsjVf5m0VtDXkcudKOIrs4bXhmaFzg5QUFJm5j2p9dKfwzNXxqVWG/KUaK6OdZ8Y8j5Pq+mKp65IG1x0CS/c5TyjqFhVwRhFK9nByeJozAo7p9O+w9bJXBECbOOtwAAAABJRU5ErkJggg==" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Trello
+      </a>
+       
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+         
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Login</a>
+          </li>
+              <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">Sing Up</a>
+         
+          </li>
+          
+        
+        </ul>
+      </div>
+    </nav>
+    </section>
+     -->
+     <section id="Who">
+      <div class="container">
+        
+          <div class="row ">
+          <div class="col-md-6 mn" style="padding-top:70px" >
+            
+            
+            <h1 style="color: white;">Welcome to GenzHub - Your Gateway to Generation Z!</h1>
+            <h3 style="color: white;"> At GenzHub, we're more than just a website; we're a vibrant digital space that's all about celebrating, understanding, and connecting with Generation Z. We are your ultimate destination for everything related to this dynamic, diverse, and influential generation</h3>
+          </div>
+           
+         
+          <div class="col-md-6 vc" >
+            <img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/308998dcb3ed5ab3d01217a4d24ffa03/hero-a.svg" class="image" width="500" height="400">
+          </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    
+      <section id="search">
+        <nav class="navbar navbar-light bg-light">
+      
+      <form class="form-inline">
+        <!-- <input class="form-control mr-sm-2" type="Email" placeholder="Email" aria-label="Email"> -->
+        <button class="btn btn-outline-success my-2 my-sm-0" href="#" style="background: #79ff4d;">Sign up-it's free!</button>
+      </form>
+    </nav>
+        
+    </section>
+    
+    
+     <section id="addi">
+      <div class="abs">
+        
+          <div class="row ">
+          <div class="col-md-6 mn" >
+            
+            <div class="abcd">
+            <h1>Work with any team</h1>
+            <h4>Whether it’s for work, a side project or even the next family vacation, Trello helps your team stay organized.</h4>
+             <button class="btn btn-outline-success my-2 my-sm-0" href="#" style="background:  #3973ac; color: white;">Start doing-></button>
+          </div>
+      </div>
+           
+         
+          <div class="col-md-6 vc" >
+            <center>
+            <img src ="https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8aW5mb3JtYXRpb24lMjB0ZWNobm9sb2d5fGVufDB8fDB8&auto=format&fit=crop&w=500&q=60" class="image" width="500" height="400">
+            </center>
+          </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    
+    
+    
+    <section id="addi2">
+      <div class="abs2">
+        
+          <div class="row ">
+          <div class="col-md-6 mn" >
+            <img src="https://images.unsplash.com/photo-1558698972-c50e325e6799?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGluZm9ybWF0aW9uJTIwdGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="image" width="500" height="500" style="padding-left: 30px;">
+            
+            
+            </div>
+           
+         
+          <div class="col-md-6 vc" >
+             <div class="abcd2"><center>
+            <h1>Information at a glance</h1>
+            <h4>Dive into the details by adding comments, attachments, due dates, and more directly to Trello cards. Collaborate on projects from beginning to end.</h4>
+               </center>
+             
+          </div>
+            
+          </div>
+    </div>
+    </div>
+    </section>
+    
+     <section id="addi3">
+      <div class="abs3">
+        
+          <div class="row ">
+          <div class="col-md-6 mn" >
+            
+            <div class="abcd3">
+            <h3>Built-In Workflow Automation With Butler</h3>
+            <h5>Let the robots do the work! Boost productivity by unleashing the power of automation across your entire team with Butler, and remove tedious tasks from your to-do lists with:</h5>
+            <h6>-Rule-Based Triggers</h6>
+            <h6>-Custom Card & Board Buttons</h6>
+            <h6>-Calendar Commands</h6>
+            <h6>-Due Date Commands</h6>
+          
+          </div>
+      </div>
+           
+         
+          <div class="col-md-6 vc" >
+            <center>
+            <img src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaG5vbG9neXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="image" width="500" height="400">
+            </center>
+          </div>
+    </div>
+    </div>
+    </section>
+    
+    
+    
+    <section id="addi4">
+      <div class="abcd4">
+       <center>
+        <h2>See how it works</h2>
+        <h5>Go from idea to action in seconds with Trello’s intuitively <br>simple boards, lists, and cards.</br></h5>
+        </center>
+       </div>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGVzaWdufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="1">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlYiUyMGRlc2lnbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="2">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjJ8fHdlYiUyMGRlc2lnbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="3">
+        </div><div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fHdlYiUyMGRlc2lnbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="4">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fHdlYiUyMGRlc2lnbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="5">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    </section>
+    
+    
+    
+    <section id="addi5">
+      <div class="abcd5">
+       <center>
+        <h2>Trello your way</h2>
+        <h5>Use Trello the way your team works best. We’ve got the<br>flexibility & features to fit any team’s style.</br></h5>
+       </div>
+      </center>
+    
+        
+          <div class="row ">
+         
+          <div class="col-md-4 text-center" >
+            <img src="https://images.unsplash.com/photo-1593642532781-03e79bf5bec2?ixid=MXwxMjA3fDF8MHxzZWFyY2h8MjF8fHRlY2hub2xvZ3l8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="image" width="250" height="350">
+                 <h3> The Team Playbook</h3>
+               <p>It’s easy to get your team up and running with Trello. We’ve collected all of the boards and tools your team needs to succeed in one handy resource. </p>
+               <button class="btn btn-outline-success my-2 my-sm-0" href="#" style="background:  #3973ac; color: white;">Make A Game Alan-></button>
+              
+           
+    
+          </div>
+         <div class="col-md-4 text-center" >
+             <img src="https://images.unsplash.com/photo-1536412597336-ade7b523ecfc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDN8fHRlY2hub2xvZ3l8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="image" width="250" height="350">
+                 <h3> A Productivity Platform</h3>
+               <p>Integrate the apps your team already uses directly into your workflow. Power-Ups turn Trello boards into living applications to meet your team's unique business needs. </p>
+               <button class="btn btn-outline-success my-2 my-sm-0" href="#" style="background:  #3973ac; color: white;">Power UP Your Workflow></button>
+               
+            
+        </div>
+         <div class="col-md-4 text-center" >
+             <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fHRlY2hub2xvZ3l8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="image" width="250" height="350">
+                 <h3>Always In Sync</h3>
+               <p>No matter where you are, Trello stays in sync across all of your devices. Collaborate with your team anywhere, from sitting on the bus to sitting on the beach </p>
+               <button class="btn btn-outline-success my-2 my-sm-0" href="#" style="background:  #3973ac; color: white;">Google Play></button>
+    
+          
+        </div>
+    </div>
+    </section>
+    
+    
+    
+     <!-- <section id="fotter">
+        <div class="container">
+         
+              <div class="row team">
+            <div class="col-md-3 text-center">
+              
+                 <h3> ABOUT</h3>
+               <p style="padding-top: 20px">Trello offers certified online courses and programs in the fields of business, management, governance, and economics. </p>
+              </div>
+    
+    
+              
+            <div class="col-md-3 text-center">
+              
+              <h3>INSTITUTE</h3>
+               
+               <p>Home</p>
+               <p>Courses</p>
+               <p>Institute</p>
+               <p>Jobs</p>
+              </div>
+    
+    
+    
+           <div class="col-md-3 text-center">
+              
+               <h3>ACCOUNT</h3>
+                <p>Register</p>
+               <p>Login</p>
+               <p>My Account</p>
+               <p>Help</p>
+              </div>
+    
+              
+            <div class="col-md-3 text-center">
+               
+               <h3>COMMUNITY</h3>
+               
+           
+    <p><b><a href="https://www.facebook.com/profile.php?id=100010032156792" >facebook</a></b></p>
+    <p><b><a href="https://www.instagram.com/mr.himanshu.gupta/" >linkedin</a></b></p>
+    <p><b><a href="https://www.instagram.com/mr.himanshu.gupta/" >instragram</a></b></p>
+    <p><b><a href="https://www.instagram.com/mr.himanshu.gupta/" >twitter</a></b></p>
+    
+     
+            
+            
+              </div>
+          </div>
+      </div>
+     </section> -->
+    
+    
     <!-- widgets start from here -->
     <div class="flexbox-widgets">
         <div class="widget"></div>
@@ -100,8 +378,8 @@
           <div class="footer-content-column">
             <div class="footer-logo">
               <a class="footer-logo-link" href="#">
-                <span class="hidden-link-text">LOGO</span>
-                <h1>LOGO</h1>
+                <span class="hidden-link-text">genZhub</span>
+                <h1>genZhub</h1>
               </a>
             </div>
             <div class="footer-menu">
@@ -113,9 +391,9 @@
                 <li class="menu-item menu-item-type-post_type menu-item-object-product">
                   <a href="#">Documentation</a>
                 </li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-product">
+                <!-- <li class="menu-item menu-item-type-post_type menu-item-object-product">
                   <a href="#">Installation</a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>
