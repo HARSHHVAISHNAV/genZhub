@@ -114,5 +114,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Redirect the user to another page within the same project
     window.location.href = "../social/social.html"; // Replace "another-page.html" with the path to your desired page  
 });
+document.getElementById("external-btn").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURL = "https://www.udemy.com/course/how-to-market-yourself-as-a-coach-or-consultant-z/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURL, "_blank");
+});
+document.getElementById("external-btna").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURLa = "https://www.udemy.com/course/marketing-research-for-profit/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURLa, "_blank");
+});
+document.getElementById("external-btnb").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURLb = "https://www.udemy.com/course/instagram-marketing-for-small-businesses/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURLb, "_blank");
+});
  
 });
