@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="enter.css">
+    <script src="enter.js"></script>
+    <title>Technology</title>
+</head>
+<body>
+    <div class="navbar-tech">
+        <h1 id="title">genZhub</h1>
+        <div class="joint">
+            <div class="profile">
+                <img src="../image/profile.png" alt="" id="profileimage">
+            </div>
+            <div class="dropdown-container">
+                <button onclick="toggleDropdown()" class="dropdown-button">
+                    <!-- <img src="../image/dashboard1.png" alt="" id="menuimage"> -->
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#home">Profile</a>
+                    <a href="#about">Technology</a>
+                    <a href="#contact">Social Issues</a>
+                    <a href="#contact">Business</a>
+                    <a href="#contact">Home</a>
+                    <a href="#contact">Forum/Blogs</a>
+                    <a href="#contact">About</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="whole">
+    <div class="widgets">
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+    </div>
+    <div class="dashboard">
+        <!-- <h1 id="titletwo">Technology</h1> -->
+        <div class="quiz-container">
+            <h1>Quiz Time!</h1>
+            <div id="question"></div>
+            <div id="options" class="options-container"></div>
+            <button id="submitBtn">Submit</button>
+            <div id="result"></div>
+        </div>
+        <div class="container">
+            <h1>POLLS</h1>
+            <h3>What's your favorite color?</h3>
+            <div id="options">
+                <label><input type="radio" name="color" value="Red"> Red</label><br>
+                <label><input type="radio" name="color" value="Blue"> Blue</label><br>
+                <label><input type="radio" name="color" value="Green"> Green</label><br>
+                <label><input type="radio" name="color" value="Yellow"> Yellow</label><br>
+            </div>
+            <button onclick="submitVote()">Vote</button>
+            <div id="result"></div>
+        </div>
+    
+        </div>
+     </div>   
+
+    
+
+    
+    <script src="tech.js"></script> 
+
+</body>
+<script>
+    const quizData = [
+    {
+        question: "What is the capital of France?",
+        options: ["Paris", "London", "Rome", "Berlin"],
+        answer: "Paris"
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Mars", "Jupiter", "Venus", "Mercury"],
+        answer: "Mars"
+    },
+    {
+        question: "What is the tallest mountain in the world?",
+        options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
+        answer: "Mount Everest"
+    }
+];
+
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const submitButton = document.getElementById('submitBtn');
+const resultElement = document.getElementById('result');
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    const currentQuizData = quizData[currentQuestion];
+    questionElement.innerText = currentQuizData.question;
+
+    optionsElement.innerHTML = '';
+    currentQuizData.options.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.classList.add('option-btn');
+        button.addEventListener('click', selectOption);
+        optionsElement.appendChild(button);
+    });
+}
+
+function selectOption(event) {
+    const selectedOption = event.target.innerText;
+    const currentQuizData = quizData[currentQuestion];
+    if (selectedOption === currentQuizData.answer) {
+        score++;
+    }
+    currentQuestion++;
+
+    if (currentQuestion < quizData.length) {
+        loadQuestion();
+    } else {
+        showResult();
+    }
+}
+
+function showResult() {
+    questionElement.style.display = 'none';
+    optionsElement.style.display = 'none';
+    submitButton.style.display = 'none';
+    resultElement.innerText = `You scored ${score} out of ${quizData.length}!`;
+}
+
+loadQuestion();
+
+
+function submitVote() {
+    var options = document.getElementsByName('color');
+    var selectedOption;
+    for (var i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+            selectedOption = options[i].value;
+            break;
+        }
+    }
+    if (selectedOption) {
+        document.getElementById('result').innerHTML = 'You voted for ' + selectedOption + '.';
+    } else {
+        alert('Please select an option before voting.');
+    }
+}
+
+    
+  </script>
+
+</html>
