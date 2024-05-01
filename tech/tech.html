@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="techstyle.css">
-    <script src="tech.js"></script>
     <title>Technology</title>
+    <link rel="stylesheet" href="techstyle.css">
+    <script src="tech.js" defer></script>
 </head>
 <body>
     <div class="navbar-tech">
         <h1 id="title">genZhub</h1>
         <div class="joint">
             <div class="dropdown-container">
-                <button onclick="toggleDropdown()" class="dropdown-button">
-                    &#9776;
-                </button>
+                <button onclick="toggleDropdown()" class="dropdown-button">Menu</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#home">Profile</a>
                     <a href="#about">Technology</a>
@@ -31,131 +29,245 @@
             </div>
         </div>
     </div>
-   <div class="whole">
-    <div class="widgets">
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-        <div class="widget"></div>
-    </div>
-    <div class="dashboard">
-        <h1 id="titletwo">Technology</h1>
-        <div class="quiz-container">
-            <h1>Quiz Time!</h1>
-            <div id="question"></div>
-            <div id="options" class="options-container"></div>
-            <button id="submitBtn" class="button-two">Submit</button>
-            <div id="result"></div>
+    <div class="whole">
+        <div class="widgets">
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
+            <div class="widget"></div>
         </div>
-        <div class="container">
-            <h1>POLLS</h1>
-            <h3>What's your favorite color?</h3>
-            <div id="options">
-                <label><input type="radio" name="color" value="Red"> Red</label><br>
-                <label><input type="radio" name="color" value="Blue"> Blue</label><br>
-                <label><input type="radio" name="color" value="Green"> Green</label><br>
-                <label><input type="radio" name="color" value="Yellow"> Yellow</label><br>
+        <div class="dashboard">
+            <div class="quiz-container">
+                <h1 id="quizTitle">Quiz Time!</h1>
+                <div id="question"></div>
+                <div id="options" class="options-container"></div>
+                <button id="submitBtn">Submit</button>
+                <div id="result"></div>
             </div>
-            <button onclick="submitVote()" class="button-two">Vote</button>
-            <div id="result"></div>
+            <div class="container">
+                <h1>POLLS</h1>
+                <h3 id="pollTitle">What's your favorite color?</h3>
+                <div id="pollOptions">
+                    <!-- Poll options will be loaded dynamically here -->
+                </div>
+                <button id="voteBtn">Vote</button>
+                <div id="pollResult"></div>
+            </div>
         </div>
-    
-        </div>
-     </div>   
+    </div>
 
-    
+    <script>
+        let quizData = []; // Array to store quiz questions
+        let currentQuestion = 0; // Index of the current question
+        let score = 0; // User's score
 
-    
-    <script src="tech.js"></script> 
+        // Function to load a quiz question
+        function loadQuestion() {
+            const currentQuizData = quizData[currentQuestion];
+            document.getElementById('question').innerText = currentQuizData.question;
 
-</body>
-<script>
-    const quizData = [
-    {
-        question: "What is the capital of France?",
-        options: ["Paris", "London", "Rome", "Berlin"],
-        answer: "Paris"
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Mars", "Jupiter", "Venus", "Mercury"],
-        answer: "Mars"
-    },
-    {
-        question: "What is the tallest mountain in the world?",
-        options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
-        answer: "Mount Everest"
-    }
-];
-
-const questionElement = document.getElementById('question');
-const optionsElement = document.getElementById('options');
-const submitButton = document.getElementById('submitBtn');
-const resultElement = document.getElementById('result');
-
-let currentQuestion = 0;
-let score = 0;
-
-function loadQuestion() {
-    const currentQuizData = quizData[currentQuestion];
-    questionElement.innerText = currentQuizData.question;
-
-    optionsElement.innerHTML = '';
-    currentQuizData.options.forEach(option => {
-        const button = document.createElement('button');
-        button.innerText = option;
-        button.classList.add('option-btn');
-        button.addEventListener('click', selectOption);
-        optionsElement.appendChild(button);
-    });
-}
-
-function selectOption(event) {
-    const selectedOption = event.target.innerText;
-    const currentQuizData = quizData[currentQuestion];
-    if (selectedOption === currentQuizData.answer) {
-        score++;
-    }
-    currentQuestion++;
-
-    if (currentQuestion < quizData.length) {
-        loadQuestion();
-    } else {
-        showResult();
-    }
-}
-
-function showResult() {
-    questionElement.style.display = 'none';
-    optionsElement.style.display = 'none';
-    submitButton.style.display = 'none';
-    resultElement.innerText = `You scored ${score} out of ${quizData.length}!`;
-}
-
-loadQuestion();
-
-
-function submitVote() {
-    var options = document.getElementsByName('color');
-    var selectedOption;
-    for (var i = 0; i < options.length; i++) {
-        if (options[i].checked) {
-            selectedOption = options[i].value;
-            break;
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuizData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                button.addEventListener('click', selectOption);
+                optionsElement.appendChild(button);
+            });
         }
-    }
-    if (selectedOption) {
-        document.getElementById('result').innerHTML = 'You voted for ' + selectedOption + '.';
-    } else {
-        alert('Please select an option before voting.');
-    }
-}
 
-    
-  </script>
+        // Function to handle option selection
+        function selectOption(event) {
+            const selectedOption = event.target.innerText;
+            const currentQuizData = quizData[currentQuestion];
+            if (selectedOption === currentQuizData.answer) {
+                score++;
+            }
+            currentQuestion++;
 
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // Function to display quiz result
+        function showResult() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('options').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('result').innerText = `You scored ${score} out of ${quizData.length}!`;
+        }
+
+        // Function to fetch new quiz data from the server
+        function fetchQuizData() {
+            // Replace the sample quiz data with actual data fetched from the server
+            // You can have a pool of quiz questions and select a random subset each time
+            const quizPool = [
+                [
+                    {
+                        question: "Which programming language is used for building dynamic web pages?",
+                        options: ["JavaScript", "Python", "CSS", "HTML"],
+                        answer: "JavaScript"
+                    },
+                    {
+                        question: "What is the primary function of a firewall in computer networks?",
+                        options: ["Virus scanning", "Unauthorized access prevention", "Data encryption", "Intrusion detection"],
+                        answer: "Unauthorized access prevention"
+                    },
+                    {
+                        question: "What does CPU stand for??",
+                        options: ["Central Processing Unit", "Computer Processing Unit", "Control Processing Unit", "Core Processing Unit"],
+                        answer: "Central Processing Unit"
+                    },
+                    {
+                        question: "Which of the following is not a type of computer virus??",
+                        options: ["Trojan Horse", "Firewall", "Worm", "Spyware"],
+                        answer: "Firewall"
+                    }
+                ],
+                [
+                    {
+                        question: "What is the full form of HTML?",
+                        options: ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "Hyper Tool Markup Language"],
+                        answer: "Hyper Text Markup Language"
+                    },
+                    {
+                        question: "Which of the following tag is used to mark a begining of paragraph?",
+                        options: ["<TD>", "<br>", "<P>", "<TR>"],
+                        answer: "<P>"
+                    },
+                    {
+                        question: "What is the correct HTML tag for the largest heading?",
+                        options: ["<head>", "<h6>", "<heading>", "<h1>"],
+                        answer: "<h1>"
+                    },
+                    {
+                        question: "Which of the following attributes of text box control allow to limit the maximum character?",
+                        options: ["size", "len", "maxlength", "all of these"],
+                        answer: "maxlength"
+                    }
+                ],
+                [
+                    {
+                        question: "Which of the following property is used to set the background color of an element?",
+                        options: ["color", "background-color", "bgcolor", "background-image"],
+                        answer: "background-color"
+                    },
+                    {
+                        question: "Which of the following is the correct syntax to display 'Welcome' in an alert box using JavaScript?",
+                        options: ["alertbox('Welcome');", "msg('Welcome');", "msgBox('Welcome');", "alert('Welcome');"],
+                        answer: "alert('Welcome');"
+                    },
+                    {
+                        question: "The external JavaScript file must contain <script> tag. True or False?",
+                        options: ["True", "False"],
+                        answer: "False"
+                    },
+                    {
+                        question: "Which of the following is not JavaScript Data Types?",
+                        options: ["Undefined", "Number", "Boolean", "Float"],
+                        answer: "Float"
+                    }
+                ],
+                [
+                    {
+                        question: "What is the correct JavaScript syntax to print 'Hello World'?",
+                        options: ["console.log('Hello World');", "print('Hello World');", "echo('Hello World');", "document.write('Hello World');"],
+                        answer: "console.log('Hello World');"
+                    },
+                    {
+                        question: "Inside which HTML element do we put the JavaScript?",
+                        options: ["<script>", "<javascript>", "<scripting>", "<js>"],
+                        answer: "<script>"
+                    },
+                    {
+                        question: "How do you write 'Hello World' in an alert box?",
+                        options: ["msg('Hello World');", "alertBox('Hello World');", "msgBox('Hello World');", "alert('Hello World');"],
+                        answer: "alert('Hello World');"
+                    },
+                    {
+                        question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
+                        options: ["<script src='xxx.js'>", "<script href='xxx.js'>", "<script name='xxx.js'>", "<script file='xxx.js'>"],
+                        answer: "<script src='xxx.js'>"
+                    }
+                ]
+            ];
+
+            // Select a random set of questions from the pool
+            const randomSetIndex = Math.floor(Math.random() * quizPool.length);
+            const newQuizData = quizPool[randomSetIndex];
+
+            // Update quiz title
+            document.getElementById('quizTitle').innerText = "New Quiz Title";
+
+            // Update quiz data
+            quizData = newQuizData;
+            currentQuestion = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        // Function to fetch new poll data from the server
+        function fetchPollData() {
+            // Replace the sample poll data with actual data fetched from the server
+            const pollPool = [
+                {
+                    question: "Which programming language do you prefer for web development?",
+                    options: ["JavaScript", "Python", "Java", "Ruby"]
+                },
+                {
+                    question: "What is your favorite smartphone brand?",
+                    options: ["Apple", "Samsung", "Google", "OnePlus"]
+                },
+                {
+                    question: "Which social media platform do you use the most?",
+                    options: ["Facebook", "Instagram", "Twitter", "LinkedIn"]
+                },
+                {
+                    question: "Which programming language would you like to learn next?",
+                    options: ["Go", "Swift", "Rust", "Kotlin"]
+                }
+            ];
+
+            // Select a random poll from the pool
+            const randomPollIndex = Math.floor(Math.random() * pollPool.length);
+            const newPollData = pollPool[randomPollIndex];
+
+            // Update poll title
+            document.getElementById('pollTitle').innerText = newPollData.question;
+
+            // Update poll options
+            const pollOptionsContainer = document.getElementById('pollOptions');
+            pollOptionsContainer.innerHTML = '';
+            newPollData.options.forEach(option => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="pollOption" value="${option}"> ${option}<br>`;
+                pollOptionsContainer.appendChild(label);
+            });
+        }
+
+        // Call fetchQuizData and fetchPollData functions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchQuizData();
+            fetchPollData();
+        });
+
+        // Add event listener to vote button
+        document.getElementById('voteBtn').addEventListener('click', function() {
+            submitVote();
+        });
+
+        // Add event listener to window load for refreshing quiz data
+        window.addEventListener('load', function() {
+            fetchQuizData();
+        });
+    </script>
+</body>
 </html>
