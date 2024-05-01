@@ -63,18 +63,21 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
-    overflow: hidden;
-    background-color: white;
+    /* overflow: hidden; */
+    background-color: transparent;
     margin: 15px;
-    /* margin-right: 80px; */
     border-radius: 4px;
-    height: 30px;
-    width: 80px;
-    color: black;
-    margin-bottom: 20px;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 30px;
+    margin-left: 70px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
-  
+  .dropdown-button :hover{
+    background-color: white;
+  }
   .dropdown-content {
     display: none;
     position: absolute; /*Adjust positioning*/
@@ -174,7 +177,7 @@ h1 {
     margin-top: 30px; /* Increase margin between options */
 }
 
-button {
+.button-two {
     margin-top: 30px; /* Increase top margin for better spacing */
     padding: 15px 30px; /* Increase button padding for better touch/click targets */
     background-color: #0056b3; /* Darker blue background for buttons */
@@ -183,7 +186,7 @@ button {
     transition: background-color 0.3s ease; /* Add a smooth transition effect */
 }
 
-button:hover {
+.button-two:hover {
     background-color: #003d7f; /* Darken the background on hover */
 }
 
@@ -218,7 +221,7 @@ button:hover {
 
 }
 
-button {
+.button-two {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #007bff;
@@ -228,13 +231,14 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button-two:hover {
     background-color: #0056b3;
 }
 
 
    
    #titletwo{
-    position: fixed;
+    position: relative;
     margin-top: 0px;
+    color: black;
    }
