@@ -37,15 +37,13 @@
             <div class="widget"></div>
             <div class="widget"></div>
             <div class="widget"></div>
-            <div class="widget"></div>
-            <div class="widget"></div>
         </div>
         <div class="dashboard">
             <div class="quiz-container">
                 <h1 id="quizTitle">Quiz Time!</h1>
                 <div id="question"></div>
                 <div id="options" class="options-container"></div>
-                <button id="submitBtn">Submit</button>
+                <button class="button-two" id="submitBtn">Submit</button>
                 <div id="result"></div>
             </div>
             <div class="container">
@@ -54,12 +52,13 @@
                 <div id="pollOptions">
                     <!-- Poll options will be loaded dynamically here -->
                 </div>
-                <button id="voteBtn">Vote</button>
+                <button class="button-two" id="voteBtn">Vote</button>
                 <div id="pollResult"></div>
             </div>
         </div>
     </div>
-
+    
+      </section>
     <script>
         let quizData = []; // Array to store quiz questions
         let currentQuestion = 0; // Index of the current question
