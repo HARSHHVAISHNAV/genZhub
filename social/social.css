@@ -3,7 +3,7 @@ body {
   margin: 0px;
   /* background-color: #003362; Fallback color */
   font-family: Arial, sans-serif;
-  background: linear-gradient(rgba(255, 255, 255, 0.197), rgba(255, 255, 255, 0.268)), url('https://source.unsplash.com/1920x1080/?technology') no-repeat center center fixed;
+  /* background: linear-gradient(rgba(255, 255, 255, 0.197), rgba(255, 255, 255, 0.268)), url('https://source.unsplash.com/1920x1080/?technology') no-repeat center center fixed; */
   background-size: cover;
   /* Use linear gradient as background */
   overflow-x: hidden;
