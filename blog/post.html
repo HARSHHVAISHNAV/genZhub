@@ -96,20 +96,58 @@ body{
       <a href="#" class="home">Home</a>
     </header>
     <h2 class="text mb-4">Post a new article</h2>
-    <form action="/upload" method="post" enctype="multipart/form-data">
+    
         <div class="mb-4"><input type="text" placeholder="Blog Title" class="input-tags"/></div>
-      
+
         <!-- <div class="mb-4"><input type="text" placeholder="Image url" class="input-tags"/></div> -->
-        <button><input type="file" name="fileToUpload" id="fileToUpload"></button>
+        <!-- <button><input type="file" name="fileToUpload" id="photo"></button> -->
+        <!-- <input type="file" name="fileToUpload" id="photo"> -->
+        <input type="file" id="photo" /></br>
+        <button id="upload" onclick="uploadImage()">Upload Image</button>
         <!-- <input type="submit" value="Upload Image"> -->
+        <!-- <button id="upload" onclick="uploadImage()">Upload Image</button> -->
         <div class="mb-4"><textarea placeholder="Blog Content" class="input-tags" id="blog-content"></textarea></div>
         <button type="submit" class="submit">Post</button>
     
-    </form>
   </div>
-  <script src="post.js"></script>
+ </body>
 
-</body>
+ <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+<script>
+
+   //paste here your copied configuration code
+   const firebaseConfig = {
+    apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+    authDomain: "reg-log-3cfe5.firebaseapp.com",
+    databaseURL: "https://reg-log-3cfe5-default-rtdb.firebaseio.com",
+    projectId: "reg-log-3cfe5",
+    storageBucket: "reg-log-3cfe5.appspot.com",
+    messagingSenderId: "129613168031",
+    appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+  };
+
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   console.log(firebase);
+   function uploadImage() {
+      const ref = firebase.storage().ref();
+      const file = document.querySelector("#photo").files[0];
+      const name = +new Date() + "-" + file.name;
+      const metadata = {
+         contentType: file.type
+      };
+      const task = ref.child(name).put(file, metadata);task
+      .then(snapshot => snapshot.ref.getDownloadURL())
+      .then(url => {
+      console.log(url);
+      alert('image uploaded successfully');
+      document.querySelector("#image").src = url;
+   })
+   .catch(console.error);
+   }
+   const errorMsgElement = document.querySelector('span#errorMsg');
+</script>
 
 </html>
 
