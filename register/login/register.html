@@ -249,7 +249,7 @@ const google = document.getElementById("google");
             });
         });
         const googleBtn = document.getElementById("google");
-    googleBtn.addEventListener('click', (e) => {
+        googleBtn.addEventListener('click', (e) => {
             signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -257,36 +257,21 @@ const google = document.getElementById("google");
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                set(ref(database, 'users/' + user.uid), {
-                    username: username,
-                    email: email,
-                    password:  password
-                })
-                .then(() => {
-                alert(user.displayName);
+                
+                // alert(user.displayName);
+                console.log(user);
                 window.location.href = "profile.html";
-            })
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                const email = error.customData.email;
-                const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
                 alert(errorMessage);
             });
 
         });
-        // function updateUserProfile() {
-        //     const userName = user.displayName;
-        //     const userEmail = user.email;
-        //     const userProfilePicture = user.photoURL;
-
-        //     document.getElementById('username').textContent = userName;
-        //     document.getElementById('userEmail').textContent = userEmail;
-        //     document.getElementById('userProfilePicture').src = userProfilePicture;
-        // }
+       
   </script>
 </html>

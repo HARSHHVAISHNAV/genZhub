@@ -3,11 +3,12 @@
 <head>
     <title>Profile Page</title>
     <link rel="stylesheet" type="text/css" href="profile.css">
+    <!-- <script src="update.js" defer type="module"></script> -->
 </head>
 <body>
     <div class="navbar">
         <h1>genZhub</h1>
-        <div class="userProfilePicture"><img src="" alt=""></div>
+        <div class="userProfilePicture" id="userProfilePhoto"><img src="" alt=""></div>
     </div>
     <div class="lit-content">
         <h1>Profile</h1>
@@ -64,24 +65,46 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script> -->
-    <script type="module">
+   <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
-        import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js';
-        // Your Firebase config
-        var firebaseConfig = {
-            apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
-            authDomain: "reg-log-3cfe5.firebaseapp.com",
-            projectId: "reg-log-3cfe5",
-            storageBucket: "reg-log-3cfe5.appspot.com",
-            messagingSenderId: "129613168031",
-            appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
-        };
-        const firebaseApp = initializeApp(firebaseConfig);
-        // Initialize Firebase
-        const database = getDatabase(firebaseApp);
-      </script>
-    <script src="ProfilePage.js" type="module"></script>
+        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+        const firebaseConfig = {
+      apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+      authDomain: "reg-log-3cfe5.firebaseapp.com",
+      projectId: "reg-log-3cfe5",
+      storageBucket: "reg-log-3cfe5.appspot.com",
+      messagingSenderId: "129613168031",
+      appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth(app);
+
+    const user = auth.currentUser;
+
+
+    function updateUserProfile() {
+            const userName = user.displayName;
+            const userEmail = user.email;
+            const userProfilePicture = user.photoURL;
+            console.log(userEmail);
+
+            document.getElementById('username').textContent = userName;
+            document.getElementById('userEmail').textContent = userEmail;
+            document.getElementById('userProfilePhoto').src = userProfilePicture;
+        }
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                updateUserProfile(user);
+                const uid = user.uid;
+                return uid;
+            } else {
+                console.log('user is not logged in');
+                window.location.href = './register.html';
+            }
+        });
+   </script>
 </body>
 </html>
