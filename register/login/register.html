@@ -257,9 +257,15 @@ const google = document.getElementById("google");
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
-                
+                set(ref(database, 'users/' + user.uid), {
+                    username: username,
+                    email: email,
+                    password:  password
+                })
+                .then(() => {
                 alert(user.displayName);
                 window.location.href = "profile.html";
+            })
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
             }).catch((error) => {
