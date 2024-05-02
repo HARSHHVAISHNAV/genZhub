@@ -67,8 +67,6 @@ body{
     height: 50px;
     border-radius: 50%;
     border: 2px solid black; 
-    /* margin: 0px 10px; */
-    /* flex-wrap: wrap; */
 }
   #account{
     display: flex;
@@ -80,7 +78,6 @@ body{
     background-color: transparent;
     border: none;
     color: white;
-    /* mix-blend-mode: difference;  */
 }
 /* external css */
 /*#nav-bar
@@ -102,6 +99,7 @@ body{
 	padding-bottom: 40px;
   /* box-shadow: 0 0 10px rgb(99, 90, 90); */
   margin-bottom: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 button.btn{
@@ -123,6 +121,7 @@ button.btn{
 	padding-right:5%;
 	padding-bottom: 5%;
   margin-bottom: 50px;
+  
 }
 .abcd
 {
@@ -130,6 +129,7 @@ button.btn{
   mix-blend-mode: difference; 
 	padding-top: 130px;
 	padding-left: 20px;
+  
 
 }
 #addi2
