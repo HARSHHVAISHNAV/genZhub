@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="business.css">
     <script src="business.js"></script>
-    <title>Business</title>
+    <title>Technology</title>
 </head>
 <body>
     <div class="navbar-tech">
         <h1 id="title">genZhub</h1>
         <div class="joint">
-            <div class="profile">
-                <img src="../image/profile.png" alt="" id="profileimage">
-            </div>
             <div class="dropdown-container">
                 <button onclick="toggleDropdown()" class="dropdown-button">
-                    <!-- <img src="../image/dashboard1.png" alt="" id="menuimage"> -->
+                   Menu
                 </button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="#home">Profile</a>
@@ -29,6 +26,9 @@
                     <a href="#contact">Contact Us</a>
                 </div>
             </div>
+            <div class="profile">
+                <img src="../image/profile.png" alt="" id="profileimage">
+            </div>
         </div>
     </div>
    <div class="whole">
@@ -37,14 +37,18 @@
         <div class="widget"></div>
         <div class="widget"></div>
         <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
+        <div class="widget"></div>
     </div>
     <div class="dashboard">
-        <!-- <h1 id="titletwo">Technology</h1> -->
+        <h1 id="titletwo">Business</h1> 
         <div class="quiz-container">
             <h1>Quiz Time!</h1>
             <div id="question"></div>
             <div id="options" class="options-container"></div>
-            <button id="submitBtn">Submit</button>
+            <button id="submitBtn" class="button-two">Submit</button>
             <div id="result"></div>
         </div>
         <div class="container">
@@ -56,7 +60,7 @@
                 <label><input type="radio" name="color" value="Green"> Green</label><br>
                 <label><input type="radio" name="color" value="Yellow"> Yellow</label><br>
             </div>
-            <button onclick="submitVote()">Vote</button>
+            <button onclick="submitVote()" class="button-two">Vote</button>
             <div id="result"></div>
         </div>
     

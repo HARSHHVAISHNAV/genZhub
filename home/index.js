@@ -64,21 +64,21 @@ document.addEventListener("DOMContentLoaded", function() {
     // Redirect the user to another page within the same project
     window.location.href = "about.html"; // Replace "another-page.html" with the path to your desired page  
 });
-  var redirectButtond = document.getElementById("about-us-a");
-  redirectButtond.addEventListener("click", function() {
+  //var redirectButtond = document.getElementById("about-us-a");
+  //redirectButtond.addEventListener("click", function() {
     // Redirect the user to another page within the same project
-    window.location.href = "about.html"; // Replace "another-page.html" with the path to your desired page  
-});
+  //  window.location.href = "about.html"; // Replace "another-page.html" with the path to your desired page  
+//});
   var redirectButtonb = document.getElementById("forums");
   redirectButtonb.addEventListener("click", function() {
     // Redirect the user to another page within the same project
     window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
 });
-  var redirectButtonc = document.getElementById("forums-a");
-  redirectButtonc.addEventListener("click", function() {
-    // Redirect the user to another page within the same project
-    window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
-});
+  //var redirectButtonc = document.getElementById("forums-a");
+  //redirectButtonc.addEventListener("click", function() {
+     //Redirect the user to another page within the same project
+   // window.location.href = "../forum/forum.html"; // Replace "another-page.html" with the path to your desired page  
+//});
   var redirectButtone = document.getElementById("tech-page");
   redirectButtone.addEventListener("click", function() {
     // Redirect the user to another page within the same project
@@ -98,6 +98,42 @@ document.addEventListener("DOMContentLoaded", function() {
   redirectButtonh.addEventListener("click", function() {
     // Redirect the user to another page within the same project
     window.location.href = "../entertainment/enter.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtoni = document.getElementById("sign-up-for-free");
+  redirectButtoni.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../register/login/register.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonj = document.getElementById("start-exploring");
+  redirectButtonj.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../tech/tech.html"; // Replace "another-page.html" with the path to your desired page  
+});
+  var redirectButtonk = document.getElementById("start-exploringa");
+  redirectButtonk.addEventListener("click", function() {
+    // Redirect the user to another page within the same project
+    window.location.href = "../social/social.html"; // Replace "another-page.html" with the path to your desired page  
+});
+document.getElementById("external-btn").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURL = "https://www.udemy.com/course/how-to-market-yourself-as-a-coach-or-consultant-z/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURL, "_blank");
+});
+document.getElementById("external-btna").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURLa = "https://www.udemy.com/course/marketing-research-for-profit/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURLa, "_blank");
+});
+document.getElementById("external-btnb").addEventListener("click", function() {
+  // Define the URL of the external site
+  var externalURLb = "https://www.udemy.com/course/instagram-marketing-for-small-businesses/?couponCode=NVDPRODIN35";
+
+  // Open the external site in a new tab/window
+  window.open(externalURLb, "_blank");
 });
  
 });

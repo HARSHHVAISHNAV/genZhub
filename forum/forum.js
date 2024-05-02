@@ -1,45 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const postButton = document.getElementById('postButton');
-    const postContent = document.getElementById('postContent');
-    const postsContainer = document.getElementById('posts');
+//NavBar
+function hideIconBar(){
+    var iconBar = document.getElementById("iconBar");
+    var navigation = document.getElementById("navigation");
+    iconBar.setAttribute("style", "display:none;");
+    navigation.classList.remove("hide");
+}
 
-    postButton.addEventListener('click', function() {
-        const content = postContent.value.trim();
-        if (content !== '') {
-            const post = createPost(content);
-            postsContainer.appendChild(post);
-            postContent.value = '';
-        }
-    });
+function showIconBar(){
+    var iconBar = document.getElementById("iconBar");
+    var navigation = document.getElementById("navigation");
+    iconBar.setAttribute("style", "display:block;");
+    navigation.classList.add("hide");
+}
 
-    function createPost(content) {
-        const post = document.createElement('div');
-        post.classList.add('post');
+//Comment
+function showComment(){
+    var commentArea = document.getElementById("comment-area");
+    // commentArea.classList.remove("hide");
+    commentArea.setAttribute("style", "display:block;");
+}
 
-        const postContent = document.createElement('div');
-        postContent.classList.add('post-content');
-        postContent.textContent = content;
-
-        const postActions = document.createElement('div');
-        postActions.classList.add('post-actions');
-
-        const postAuthor = document.createElement('span');
-        postAuthor.classList.add('post-author');
-        postAuthor.textContent = 'Posted by: Anonymous';
-
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.classList.add('delete-button');
-        deleteButton.addEventListener('click', function() {
-            post.remove();
-        });
-
-        postActions.appendChild(postAuthor);
-        postActions.appendChild(deleteButton);
-
-        post.appendChild(postContent);
-        post.appendChild(postActions);
-
-        return post;
-    }
-});
+function showReply(){
+    var replyArea = document.getElementById("reply-area");
+    // commentArea.classList.remove("hide");
+    replyArea.setAttribute("style", "display:block;");
+}
