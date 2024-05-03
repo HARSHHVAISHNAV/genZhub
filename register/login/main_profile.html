@@ -201,6 +201,81 @@
             height: 35px;
             border-radius: 50%;
         }
+    @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #333;
+  font-family: 'Lato', sans-serif;
+  color: #ddd;
+  font-weight: 300;
+}
+.container-one {
+    order: 4;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 1200px) {
+  .container-one {
+    max-width: 1200px;
+  }
+}
+.quick-fact {
+  margin-top: 120px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+.quick-fact p {
+  margin: 0;
+}
+.quick-fact__img {
+  margin-top: -120px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.quick-fact__img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 34% 66% 70% 30% / 30% 30% 70% 70%;
+  box-shadow: 20px 10px 0 -5px rgba(255, 255, 255, 0.5), -2px 15px 0 -5px rgba(255, 255, 255, 0.5);
+}
+@media (min-width: 768px) {
+  .quick-fact {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+    padding: 20px 40px;
+  }
+  .quick-fact h2 {
+    margin: 0;
+  }
+  .quick-fact__img {
+    flex: 0 0 auto;
+    max-width: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -60px;
+  }
+  .quick-fact__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .quick-fact__title {
+    border-right: 1px solid #ccc;
+    flex-basis: fit-content;
+    margin-right: 20px;
+    padding-right: 20px;
+  }
+  .quick-fact__desc {
+    flex: 1 0 66.6666666667%;
+  }
+}
         </style>
 </head>
 <body>
@@ -245,6 +320,71 @@
         <button class="add-post" id="post" name="post">Add a post</button>
         <button class="logout">Log out</button>
     </div>
+    <!-- codepen  -->
+    <div class="container-one">
+        <div class="quick-fact">
+          <div class="quick-fact__img">
+            <img src="https://picsum.photos/300" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
+          </div>
+          <div class="quick-fact__content">
+            <div class="quick-fact__title">
+              <h2>Lorem ipsum dolor sit amet</h2>
+            </div>
+            <div class="quick-fact__desc">
+              <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- <div class="quick-fact">
+          <div class="quick-fact__img">
+            <img src="https://picsum.photos/300?2" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
+          </div>
+          <div class="quick-fact__content">
+            <div class="quick-fact__desc">
+              <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="quick-fact">
+          <div class="quick-fact__img">
+            <img src="https://picsum.photos/300?3" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
+          </div>
+          <div class="quick-fact__content">
+            <div class="quick-fact__title">
+              <h2>Lorem</h2>
+            </div>
+            <div class="quick-fact__desc">
+              <p>Consectetur adipiscing elit</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="quick-fact">
+          <div class="quick-fact__img">
+            <img src="https://picsum.photos/300?4" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
+          </div>
+          <div class="quick-fact__content">
+            <div class="quick-fact__title">
+              <h2>Loremipsum dolorsit amet Consectetur adipiscing elit</h2>
+            </div>
+            <div class="quick-fact__desc">
+              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div> -->
+
+
+      </div>
+
+
+
+
+
+
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
