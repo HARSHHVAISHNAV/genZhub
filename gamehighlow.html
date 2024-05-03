@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #game {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game">
+        <h1>Guess the Number Game</h1>
+        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        <input type="text" id="guessField">
+        <button onclick="checkGuess()">Submit Guess</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // Generate a random number between 1 and 100
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Get references to the input field and output div
+        const guessField = document.getElementById('guessField');
+        const output = document.getElementById('output');
+
+        // Initialize a variable to keep track of the number of guesses
+        let guessCount = 0;
+
+        function checkGuess() {
+            // Get the player's guess from the input field
+            const userGuess = Number(guessField.value);
+
+            // Increment the guess count
+            guessCount++;
+
+            // Check if the guess is correct
+            if (userGuess === randomNumber) {
+                output.textContent = `Congratulations! You guessed the number in ${guessCount} guesses!`;
+                output.style.backgroundColor = 'green';
+            } else if (userGuess < randomNumber) {
+                output.textContent = 'Too low! Try again.';
+                output.style.backgroundColor = 'red';
+            } else {
+                output.textContent = 'Too high! Try again.';
+                output.style.backgroundColor = 'red';
+            }
+
+            // Clear the input field
+            guessField.value = '';
+        }
+    </script>
+</body>
+</html>

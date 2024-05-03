@@ -315,11 +315,11 @@ body {
   
       <div class="posts">
         <div class="num-posts" ><br> posts</div>
-        <div class="points">238 <br> points</div>
+        <!-- <div class="points">238 <br> points</div> -->
       </div>
     <div class="button-section">
         <button class="add-post" id="post" name="post">Add a post</button>
-        <button class="logout">Log out</button>
+        <button class="logout" onclick="logout()">Log out </button>
     </div>
 
     <!-- codepen  -->
@@ -427,6 +427,17 @@ body {
             e.preventDefault();
             window.location.href = '../../blog/post.html';
         });
+
+        function logout() {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            window.location.href = 'main.html'; // Redirect to the home page after logout
+        }).catch((error) => {
+            // An error happened.
+            console.error('Logout error:', error);
+        });
+    }
+
     </script>
 </body>
 </html>
