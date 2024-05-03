@@ -232,7 +232,7 @@
                 </div>
             </div>
             <div class="mainc2">
-                <textarea name="about me" id="" cols="65" rows="10"></textarea>
+                <div name="about me" id="about_me" cols="65" rows="10"></div>
             </div>
         </div>
    </div>
@@ -273,6 +273,7 @@
                     if (data) {
                         document.getElementById('userName').innerText = data.firstName || '';
                         document.getElementById('last-name').innerText = data.lastName || '';
+                        document.getElementById('about_me').innerText = data.aboutMe || '';
                     }
                 }, {
                     onlyOnce: true

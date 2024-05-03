@@ -148,7 +148,8 @@ body{
       contentType: file.type
     };
 
-    const task = ref.child(name).put(file, metadata);task
+    const task = ref.child(name).put(file, metadata);
+    task
       .then(snapshot => snapshot.ref.getDownloadURL())
       .then(url => {
       alert('image uploaded successfully');
