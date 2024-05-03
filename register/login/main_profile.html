@@ -319,7 +319,7 @@ body {
       </div>
     <div class="button-section">
         <button class="add-post" id="post" name="post">Add a post</button>
-        <button class="logout" onclick="logout()">Log out </button>
+        <button class="logout" id="logout_btn">Log out </button>
     </div>
 
     <!-- codepen  -->
@@ -429,14 +429,15 @@ body {
         });
 
         function logout() {
-        firebase.auth().signOut().then(() => {
-            // Sign-out successful.
-            window.location.href = 'main.html'; // Redirect to the home page after logout
-        }).catch((error) => {
-            // An error happened.
-            console.error('Logout error:', error);
-        });
-    }
+            auth.signOut().then(() => {
+                console.log('User signed out');
+                window.location.href = '../../home/main.html';
+            }).catch((error) => {
+                console.error(error);
+            });
+        };
+
+        document.getElementById('logout_btn').addEventListener('click', logout);
 
     </script>
 </body>
