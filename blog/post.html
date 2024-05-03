@@ -222,6 +222,8 @@ body{
          };
          await setDoc(doc(firestore, "blogs", title), blog);
          alert("Blog posted successfully");
+         
+            window.location.href = '../../register/login/main_profile.html';
       } catch (error) {
          console.error("Error posting article:", error);
          alert("Error posting article");
