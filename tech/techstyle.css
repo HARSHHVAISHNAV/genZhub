@@ -169,7 +169,7 @@ body {
 
 
 h1 {
-    color: #fff; /* White text color for headings */
+    color: black  ; /* White text color for headings */
     margin-bottom: 30px; /* Add more space below the heading */
 }
 
@@ -235,7 +235,7 @@ h1 {
     background-color: #0056b3;
 }
  #titletwo{
-    position: fixed;
+    position: relative;
     margin-top: 0px;
    }
 
