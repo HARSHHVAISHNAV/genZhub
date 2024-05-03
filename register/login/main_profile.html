@@ -307,7 +307,7 @@ body {
                 </div>
             </div>
             <div class="mainc2">
-                <textarea name="about me" id="" cols="65" rows="10"></textarea>
+                <div name="about me" id="" cols="65" rows="10" id="about_me"></div>
             </div>
         </div>
    </div>
@@ -413,6 +413,7 @@ body {
                     if (data) {
                         document.getElementById('userName').innerText = data.firstName || '';
                         document.getElementById('last-name').innerText = data.lastName || '';
+                        document.getElementById('about_me').innerText = data.aboutMe || '';
                     }
                 }, {
                     onlyOnce: true
