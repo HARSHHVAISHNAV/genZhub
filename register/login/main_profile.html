@@ -321,17 +321,20 @@ body {
         <button class="logout">Log out</button>
     </div>
     <!-- codepen  -->
-    <div class="container-one">
+    <div id="posts-container"></div>
+    <div class="container-one">    
         <div class="quick-fact">
           <div class="quick-fact__img">
-            <img src="https://picsum.photos/300" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
+            <img  alt="No image" loading="lazy" width="300" height="300" />
           </div>
           <div class="quick-fact__content">
             <div class="quick-fact__title">
-              <h2>Lorem ipsum dolor sit amet</h2>
+              <h2 id="title">
+
+              </h2>
             </div>
             <div class="quick-fact__desc">
-              <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <p id="content"></p>
             </div>
           </div>
         </div>
@@ -380,11 +383,6 @@ body {
       </div>
 
 
-
-
-
-
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
@@ -402,6 +400,7 @@ body {
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getDatabase(app);
+        const firestore = firebase.firestore();
 
         onAuthStateChanged(auth, user => {
             if (user) {
@@ -428,6 +427,47 @@ body {
             e.preventDefault();
             window.location.href = '../../blog/post.html';
         });
+
+        try {
+        // Get reference to the container where posts will be rendered
+        const postsContainer = document.getElementById('posts-container');
+
+        // Get the UID of the currently logged-in user
+        const currentUser = await getCurrentUser();
+
+        // Fetch blog posts data from Firestore for the current user
+        const snapshot = await firestore.collection('blogs').where('uid', '==', currentUser.uid).get();
+        snapshot.forEach(doc => {
+            const post = doc.data();
+
+            // Create HTML elements for each post
+            const postDiv = document.createElement('div');
+            postDiv.classList.add('post');
+
+            const titlePara = document.createElement('p');
+            titlePara.textContent = `Title: ${post.title}`;
+
+            const contentPara = document.createElement('p');
+            contentPara.textContent = `Content: ${post.content}`;
+
+            // Append elements to the container
+            postDiv.appendChild(titlePara);
+            postDiv.appendChild(contentPara);
+            postsContainer.appendChild(postDiv);
+        });
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+    }
+
+
+async function getCurrentUser() {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+            unsubscribe();
+            resolve(user);
+        }, reject);
+    });
+}
     </script>
 </body>
 </html>
