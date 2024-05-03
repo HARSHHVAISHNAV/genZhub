@@ -224,7 +224,12 @@
         </div>
         <div class="mainc">
             <div class="mainc1">
-                First-Name Last-Name
+                <div id="userName">
+                    
+                </div>
+                <div id="last-name">
+                    
+                </div>
             </div>
             <div class="mainc2">
                 <textarea name="about me" id="" cols="65" rows="10"></textarea>
@@ -237,8 +242,51 @@
     <div class="points">238 <br> points</div>
   </div>
     <div class="button-section">
-        <button class="add-post">Add a post</button>
+        <button class="add-post" id="post" name="post">Add a post</button>
         <button class="logout">Log out</button>
     </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+            authDomain: "reg-log-3cfe5.firebaseapp.com",
+            projectId: "reg-log-3cfe5",
+            storageBucket: "reg-log-3cfe5.appspot.com",
+            messagingSenderId: "129613168031",
+            appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                const uid = user.uid;
+                const userRef = ref(db, 'users/' + uid);
+                onValue(userRef, (snapshot) => {
+                    const data = snapshot.val();
+                    console.log(data);
+                    if (data) {
+                        document.getElementById('userName').innerText = data.firstName || '';
+                        document.getElementById('last-name').innerText = data.lastName || '';
+                    }
+                }, {
+                    onlyOnce: true
+                });
+            } else {
+                console.log('User is not logged in');
+                window.location.href = './login.html';
+            }
+        });
+
+        post.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = '../../blog/post.html';
+        });
+    </script>
 </body>
 </html>

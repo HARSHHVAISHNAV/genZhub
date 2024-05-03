@@ -34,7 +34,7 @@
             <div class="save-cancel">
                 <h3>Basic Info</h3>
                     <div class="button-sc">
-                        <button>Save</button>
+                        <button id="save" name="save">Save</button>
                         <button>Cancel</button>
                     </div>
             </div>
@@ -65,46 +65,73 @@
     <!-- <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"></script> -->
-   <script type="module">
+    <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
 
         const firebaseConfig = {
-      apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
-      authDomain: "reg-log-3cfe5.firebaseapp.com",
-      projectId: "reg-log-3cfe5",
-      storageBucket: "reg-log-3cfe5.appspot.com",
-      messagingSenderId: "129613168031",
-      appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
-    };
+            apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+            authDomain: "reg-log-3cfe5.firebaseapp.com",
+            projectId: "reg-log-3cfe5",
+            storageBucket: "reg-log-3cfe5.appspot.com",
+            messagingSenderId: "129613168031",
+            appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth(app);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
 
-    const user = auth.currentUser;
-
-
-    function updateUserProfile() {
-            const userName = user.displayName;
-            const userEmail = user.email;
-            const userProfilePicture = user.photoURL;
-            console.log(userEmail);
-
-            document.getElementById('username').textContent = userName;
-            document.getElementById('userEmail').textContent = userEmail;
-            document.getElementById('userProfilePhoto').src = userProfilePicture;
-        }
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, user => {
             if (user) {
-                updateUserProfile(user);
                 const uid = user.uid;
-                return uid;
+                const userRef = ref(db, 'users/' + uid);
+                onValue(userRef, (snapshot) => {
+                    const data = snapshot.val();
+                    console.log(data);
+                    if (data) {
+                        document.getElementById('userName').value = data.firstName || '';
+                        document.getElementById('last-name').value = data.lastName || '';
+                        document.getElementById('userEmail').value = user.email; 
+                        document.getElementById('title').value = data.title || '';
+                        document.getElementById('about-me').value = data.aboutMe || '';
+                        document.getElementById('userProfilePhoto').src = data.profilePicture || '';
+                    }
+                }, {
+                    onlyOnce: true
+                });
             } else {
-                console.log('user is not logged in');
-                window.location.href = './register.html';
+                console.log('User is not logged in');
+                window.location.href = './login.html';
             }
         });
-   </script>
+
+        save.addEventListener('click', (e) => {
+            e.preventDefault();
+            const user = auth.currentUser;
+            const uid = user.uid;
+            const userRef = ref(db, 'users/' + uid);
+            const userName = document.getElementById('userName').value;
+            const lastName = document.getElementById('last-name').value;
+            const title = document.getElementById('title').value;
+            const aboutMe = document.getElementById('about-me').value;
+            const userProfilePhoto = document.getElementById('userProfilePhoto').src;
+
+            set(userRef, {
+                firstName: userName,
+                lastName: lastName,
+                title: title,
+                aboutMe: aboutMe,
+                profilePicture: userProfilePhoto,
+                email: user.email
+            }).then(() => {
+                alert('Profile updated successfully');
+                window.location.href = "main_profile.html";
+            }).catch((error) => {
+                alert('Error updating profile');
+            });
+        });
+    </script>
 </body>
 </html>
