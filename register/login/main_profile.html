@@ -151,7 +151,7 @@
                 font-size: 30px;
             }
         .posts{
-                order: 3;
+                order: 2;
                 display: flex;
                 flex-direction: row;
                 /* border: 2px solid black; */
@@ -177,6 +177,7 @@
                 /* align-items: center; */
             }
         .add-post,.logout{
+            order: 3;
             display: flex;
             margin: 10px;
             padding: 10px 15px;
@@ -283,7 +284,7 @@ body {
    <div class="container">
         <div class="navbar">
             <div class="back">
-                <img src="photos/bgi3.png" alt="">
+                <img src="" >
             </div>
             <div class="profile">
                <b> genZhub </b>
@@ -295,7 +296,7 @@ body {
    </div>
    <div class="main">
         <div class="circle">
-            <img src="photos/bgi2.jpg"  alt="">
+            <img src=""  >
         </div>
         <div class="mainc">
             <div class="mainc1">
@@ -311,17 +312,18 @@ body {
             </div>
         </div>
    </div>
-
-   <div class="posts">
-    <div class="num-posts">21 <br> posts</div>
-    <div class="points">238 <br> points</div>
-  </div>
+  
+      <div class="posts">
+        <div class="num-posts" ><br> posts</div>
+        <div class="points">238 <br> points</div>
+      </div>
     <div class="button-section">
         <button class="add-post" id="post" name="post">Add a post</button>
         <button class="logout">Log out</button>
     </div>
+
     <!-- codepen  -->
-    <div id="posts-container"></div>
+    <div id="posts-container">
     <div class="container-one">    
         <div class="quick-fact">
           <div class="quick-fact__img">
@@ -329,57 +331,14 @@ body {
           </div>
           <div class="quick-fact__content">
             <div class="quick-fact__title">
-              <h2 id="title">
-
-              </h2>
+              <h2 id="title"></h2>
             </div>
             <div class="quick-fact__desc">
               <p id="content"></p>
             </div>
           </div>
         </div>
-        
-        <!-- <div class="quick-fact">
-          <div class="quick-fact__img">
-            <img src="https://picsum.photos/300?2" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
-          </div>
-          <div class="quick-fact__content">
-            <div class="quick-fact__desc">
-              <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
         </div>
-        
-        
-        <div class="quick-fact">
-          <div class="quick-fact__img">
-            <img src="https://picsum.photos/300?3" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
-          </div>
-          <div class="quick-fact__content">
-            <div class="quick-fact__title">
-              <h2>Lorem</h2>
-            </div>
-            <div class="quick-fact__desc">
-              <p>Consectetur adipiscing elit</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="quick-fact">
-          <div class="quick-fact__img">
-            <img src="https://picsum.photos/300?4" alt="Icon of Person with Heart Shown" loading="lazy" width="300" height="300" />
-          </div>
-          <div class="quick-fact__content">
-            <div class="quick-fact__title">
-              <h2>Loremipsum dolorsit amet Consectetur adipiscing elit</h2>
-            </div>
-            <div class="quick-fact__desc">
-              <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
-        </div> -->
-
-
       </div>
 
 
@@ -387,13 +346,7 @@ body {
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
         import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
-        import {
-        getFirestore,
-        collection,
-        query,
-        where,
-        getDocs
-        } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+        import {getFirestore,collection,query,where,getDocs} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 
         const firebaseConfig = {
@@ -429,20 +382,41 @@ body {
                     const blogsQuery = query(collection(firestore, "blogs"), where("uid", "==", uid));
                     const querySnapshot = await getDocs(blogsQuery);
     
+                    // const postsContainer = document.getElementById("posts-container");
+                    // postsContainer.innerHTML = '';
+    
+                    const numPosts = querySnapshot.size;
+                    document.querySelector('.num-posts').innerHTML = `<br> ${numPosts} posts`;
+
+                    renderPosts(querySnapshot);
+                    function renderPosts(querySnapshot) {
                     const postsContainer = document.getElementById("posts-container");
                     postsContainer.innerHTML = '';
-    
                     querySnapshot.forEach(doc => {
                         const blogData = doc.data();
                         const postElement = document.createElement("div");
                         postElement.innerHTML = `
-                            <h3>${blogData.title}</h3>
-                            <p>${blogData.content}</p>
+                        
+                          <div class="container-one">     
+                          <div class="quick-fact">
+                            <div class="quick-fact__img">
                             <img src="${blogData.imageUrl}" alt="Blog Image" style="width: 300px; height: auto;">
+                            </div>
+                        <div class="quick-fact__title">
+                          <h2>${blogData.title}</h2>
+                        </div> 
+                        <div class="quick-fact__desc">
+                                <p>${blogData.content}</p>
+                        </div>
+                          
+                        </div>
+                        </div>
+                        
                         `;
                         postsContainer.appendChild(postElement);
                     });
-                } else {
+                } }
+                 else {
                     console.log('User is not logged in');
                     window.location.href = './login.html';
                 }
