@@ -16,14 +16,15 @@
                    Menu
                 </button>
                 <div id="myDropdown" class="dropdown-content">
-                    <a href="#home">Profile</a>
-                    <a href="#about">Technology</a>
-                    <a href="#contact">Social Issues</a>
-                    <a href="#contact">Business</a>
-                    <a href="#contact">Home</a>
-                    <a href="#contact">Forum/Blogs</a>
-                    <a href="#contact">About</a>
-                    <a href="#contact">Contact Us</a>
+                    <a href="../register/login/profile.html">Profile</a>
+                    <a href="../tech/tech.html">Technology</a>
+                    <a href="../social/social.html">Social Issues</a>
+                    <a href="../business/business.html">Business</a>
+                    <a href="../entertainment/enter.html">Entertainment</a>
+                    <a href="../home/main.html">Home</a>
+                    <a href="../forum/forum.html">Forum</a>
+                    <a href="../home/about.html">About</a>
+                    <a href="../home/main.html#contact-usa">Contact Us</a>
                 </div>
             </div>
             <div class="profile">
@@ -45,23 +46,20 @@
     <div class="dashboard">
         <h1 id="titletwo">Entertainment</h1>
         <div class="quiz-container">
-            <h1>Quiz Time!</h1>
+            <h1 id="quizTitle">Quiz Time!</h1>
             <div id="question"></div>
             <div id="options" class="options-container"></div>
-            <button id="submitBtn" class="button-two">Submit</button>
+            <button class="button-two" id="submitBtn">Submit</button>
             <div id="result"></div>
         </div>
         <div class="container">
             <h1>POLLS</h1>
-            <h3>What's your favorite color?</h3>
-            <div id="options">
-                <label><input type="radio" name="color" value="Red"> Red</label><br>
-                <label><input type="radio" name="color" value="Blue"> Blue</label><br>
-                <label><input type="radio" name="color" value="Green"> Green</label><br>
-                <label><input type="radio" name="color" value="Yellow"> Yellow</label><br>
+            <h3 id="pollTitle">What's your favorite color?</h3>
+            <div id="pollOptions">
+                <!-- Poll options will be loaded dynamically here -->
             </div>
-            <button onclick="submitVote()" class="button-two">Vote</button>
-            <div id="result"></div>
+            <button class="button-two" id="voteBtn">Vote</button>
+            <div id="pollResult"></div>
         </div>
     
         </div>
@@ -70,91 +68,217 @@
     
 
     
-    <script src="tech.js"></script> 
+    <script src="enter.js"></script> 
 
 </body>
 <script>
-    const quizData = [
-    {
-        question: "What is the capital of France?",
-        options: ["Paris", "London", "Rome", "Berlin"],
-        answer: "Paris"
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Mars", "Jupiter", "Venus", "Mercury"],
-        answer: "Mars"
-    },
-    {
-        question: "What is the tallest mountain in the world?",
-        options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
-        answer: "Mount Everest"
-    }
-];
+    let quizData = []; // Array to store quiz questions
+        let currentQuestion = 0; // Index of the current question
+        let score = 0; // User's score
 
-const questionElement = document.getElementById('question');
-const optionsElement = document.getElementById('options');
-const submitButton = document.getElementById('submitBtn');
-const resultElement = document.getElementById('result');
+        // Function to load a quiz question
+        function loadQuestion() {
+            const currentQuizData = quizData[currentQuestion];
+            document.getElementById('question').innerText = currentQuizData.question;
 
-let currentQuestion = 0;
-let score = 0;
-
-function loadQuestion() {
-    const currentQuizData = quizData[currentQuestion];
-    questionElement.innerText = currentQuizData.question;
-
-    optionsElement.innerHTML = '';
-    currentQuizData.options.forEach(option => {
-        const button = document.createElement('button');
-        button.innerText = option;
-        button.classList.add('option-btn');
-        button.addEventListener('click', selectOption);
-        optionsElement.appendChild(button);
-    });
-}
-
-function selectOption(event) {
-    const selectedOption = event.target.innerText;
-    const currentQuizData = quizData[currentQuestion];
-    if (selectedOption === currentQuizData.answer) {
-        score++;
-    }
-    currentQuestion++;
-
-    if (currentQuestion < quizData.length) {
-        loadQuestion();
-    } else {
-        showResult();
-    }
-}
-
-function showResult() {
-    questionElement.style.display = 'none';
-    optionsElement.style.display = 'none';
-    submitButton.style.display = 'none';
-    resultElement.innerText = `You scored ${score} out of ${quizData.length}!`;
-}
-
-loadQuestion();
-
-
-function submitVote() {
-    var options = document.getElementsByName('color');
-    var selectedOption;
-    for (var i = 0; i < options.length; i++) {
-        if (options[i].checked) {
-            selectedOption = options[i].value;
-            break;
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuizData.options.forEach(option => {
+                const button = document.createElement('button');
+                button.innerText = option;
+                button.classList.add('option-btn');
+                button.addEventListener('click', selectOption);
+                optionsElement.appendChild(button);
+            });
         }
-    }
-    if (selectedOption) {
-        document.getElementById('result').innerHTML = 'You voted for ' + selectedOption + '.';
-    } else {
-        alert('Please select an option before voting.');
-    }
-}
 
+        // Function to handle option selection
+        function selectOption(event) {
+            const selectedOption = event.target.innerText;
+            const currentQuizData = quizData[currentQuestion];
+            if (selectedOption === currentQuizData.answer) {
+                score++;
+            }
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        // Function to display quiz result
+        function showResult() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('options').style.display = 'none';
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('result').innerText = `You scored ${score} out of ${quizData.length}!`;
+        }
+
+        // Function to fetch new quiz data from the server
+        function fetchQuizData() {
+            // Replace the sample quiz data with actual data fetched from the server
+            // You can have a pool of quiz questions and select a random subset each time
+            const quizPool = [
+                [
+                    {
+                        question: "Who played the lead role in the movie 'Inception'?",
+                        options: ["Leonardo DiCaprio", "Tom Cruise", "Brad Pitt", "Johnny Depp"],
+                        answer: "Leonardo DiCaprio"
+                    },
+                    {
+                        question: "Which of these movies won the Academy Award for Best Picture in 2020?",
+                        options: ["Parasite", "1917", "Joker", "Once Upon a Time in Hollywood"],
+                        answer: "Parasite"
+                    },
+                    {
+                        question: "Who directed the 'Lord of the Rings' film trilogy?",
+                        options: ["Steven Spielberg", "James Cameron", "Peter Jackson", "Christopher Nolan"],
+                        answer: "Peter Jackson"
+                    },
+                    {
+                        question: "Which actor portrayed Harry Potter in the film series?",
+                        options: ["Daniel Radcliffe", "Rupert Grint", "Tom Felton", "Matthew Lewis"],
+                        answer: "Daniel Radcliffe"
+                    }
+                ],
+                [
+                    {
+                        question: "Which of these musicians is known as the 'King of Pop'?",
+                        options: ["Elvis Presley", "Michael Jackson", "Frank Sinatra", "Prince"],
+                        answer: "Michael Jackson"
+                    },
+                    {
+                        question: "What is the best-selling album of all time?",
+                        options: ["Thriller by Michael Jackson", "The Dark Side of the Moon by Pink Floyd", "Back in Black by AC/DC", "Led Zeppelin IV by Led Zeppelin"],
+                        answer: "Thriller by Michael Jackson"
+                    },
+                    {
+                        question: "Who is known for the hit song 'Shape of You'?",
+                        options: ["Ed Sheeran", "Bruno Mars", "Justin Bieber", "Adele"],
+                        answer: "Ed Sheeran"
+                    },
+                    {
+                        question: "Which band performed the song 'Bohemian Rhapsody'?",
+                        options: ["Queen", "The Beatles", "Led Zeppelin", "Pink Floyd"],
+                        answer: "Queen"
+                    }
+                ],
+                [
+                    {
+                        question: "Which TV show features characters named Chandler, Ross, and Rachel?",
+                        options: ["Friends", "The Office", "Breaking Bad", "Game of Thrones"],
+                        answer: "Friends"
+                    },
+                    {
+                        question: "Who created the animated TV series 'The Simpsons'?",
+                        options: ["Seth MacFarlane", "Matt Groening", "Trey Parker", "Mike Judge"],
+                        answer: "Matt Groening"
+                    },
+                    {
+                        question: "Which streaming platform is known for producing 'Stranger Things'?",
+                        options: ["Netflix", "Hulu", "Amazon Prime Video", "Disney+"],
+                        answer: "Netflix"
+                    },
+                    {
+                        question: "Who is the host of 'The Late Late Show'?",
+                        options: ["Jimmy Fallon", "James Corden", "Jimmy Kimmel", "Stephen Colbert"],
+                        answer: "James Corden"
+                    }
+                ],
+                [
+                    {
+                        question: "Who won the Academy Award for Best Actor in 2019?",
+                        options: ["Joaquin Phoenix", "Brad Pitt", "Leonardo DiCaprio", "Daniel Day-Lewis"],
+                        answer: "Joaquin Phoenix"
+                    },
+                    {
+                        question: "Which actress played the lead role in the movie 'La La Land'?",
+                        options: ["Emma Stone", "Jennifer Lawrence", "Natalie Portman", "Scarlett Johansson"],
+                        answer: "Emma Stone"
+                    },
+                    {
+                        question: "Who directed the film 'The Dark Knight'?",
+                        options: ["Christopher Nolan", "Martin Scorsese", "Quentin Tarantino", "David Fincher"],
+                        answer: "Christopher Nolan"
+                    },
+                    {
+                        question: "Which TV show is set in the fictional land of Westeros?",
+                        options: ["Game of Thrones", "Breaking Bad", "The Walking Dead", "Stranger Things"],
+                        answer: "Game of Thrones"
+                    }
+                ]
+            ];
+
+            // Select a random set of questions from the pool
+            const randomSetIndex = Math.floor(Math.random() * quizPool.length);
+            const newQuizData = quizPool[randomSetIndex];
+
+            // Update quiz title
+            document.getElementById('quizTitle').innerText = "New Quiz Title";
+
+            // Update quiz data
+            quizData = newQuizData;
+            currentQuestion = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        // Function to fetch new poll data from the server
+        function fetchPollData() {
+            // Replace the sample poll data with actual data fetched from the server
+            const pollPool = [
+                {
+                    question: "Which movie genre do you enjoy the most?",
+                    options: ["Action", "Comedy", "Drama", "Science Fiction"]
+                },
+                {
+                    question: "Who is your favorite musical artist?",
+                    options: ["Beyoncé", "Taylor Swift", "Drake", "Ariana Grande"]
+                },
+                {
+                    question: "What is your favorite TV show genre?",
+                    options: ["Sitcom", "Crime Drama", "Fantasy", "Reality TV"]
+                },
+                {
+                    question: "What is your preferred platform for watching movies and TV shows?",
+                    options: ["Netflix", "Hulu", "Amazon Prime Video", "Disney+"]
+                }
+            ];
+            // Select a random poll from the pool
+            const randomPollIndex = Math.floor(Math.random() * pollPool.length);
+            const newPollData = pollPool[randomPollIndex];
+
+            // Update poll title
+            document.getElementById('pollTitle').innerText = newPollData.question;
+
+            // Update poll options
+            const pollOptionsContainer = document.getElementById('pollOptions');
+            pollOptionsContainer.innerHTML = '';
+            newPollData.options.forEach(option => {
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="radio" name="pollOption" value="${option}"> ${option}<br>`;
+                pollOptionsContainer.appendChild(label);
+            });
+        }
+
+        // Call fetchQuizData and fetchPollData functions on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchQuizData();
+            fetchPollData();
+        });
+
+        // Add event listener to vote button
+        document.getElementById('voteBtn').addEventListener('click', function() {
+            submitVote();
+        });
+
+        // Add event listener to window load for refreshing quiz data
+        window.addEventListener('load', function() {
+            fetchQuizData();
+        });
+    
     
   </script>
 
