@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.preview {
+  text-align: center;
+}
+
+.preview h1 {
+  font-size: 2em;
+}
+
+.preview p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.preview a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.preview a:hover {
+  background-color: #0056b3;
+}
+body {
+	background: #def;
+}
+svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	height: 100%;
+	width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <div class="preview">
+      <h1>Welcome to Our Website</h1>
+      <p>Get ready for an amazing experience!</p>
+      <a href="./home/main.html">Enter</a>
+    </div>
+    <svg viewBox="0 0 100 100">
+        <g stroke-width="20">
+            <g transform="rotate(0 50 50)">
+                <circle cx="50" cy="50" r="0" stroke="#012" stroke-dasharray="0 9 6 4 5" fill="none">
+                    <animate attributeName="r" values="0; 100" dur="30s" begin="0s" repeatCount="indefinite" />
+                </circle>
+            </g>
+            <g transform="rotate(60 50 50)">
+                <circle cx="50" cy="50" r="0" stroke="#345" stroke-dasharray="4 8 4 6 2" fill="none">
+                    <animate attributeName="r" values="0; 100" dur="30s" begin="-2s" repeatCount="indefinite" />
+                </circle>
+            </g>
+            <g transform="rotate(120 50 50)">
+                <circle cx="50" cy="50" r="0" stroke="#678" stroke-dasharray="2 7 9 9 6" fill="none">
+                    <animate attributeName="r" values="0; 100" dur="30s" begin="-4s" repeatCount="indefinite" />
+                </circle>
+            </g>
+            <g transform="rotate(180 50 50)">
+                <circle cx="50" cy="50" r="0" stroke="#9ab" stroke-dasharray="8 8 3 7 7" fill="none">
+                    <animate attributeName="r" values="0; 100" dur="30s" begin="-6s" repeatCount="indefinite" />
+                </circle>
+            </g>
+            <g transform="rotate(240 50 50)">
+                <circle cx="50" cy="50" r="0" stroke="#cde" stroke-dasharray="1 5 6 7 5" fill="none">
+                    <animate attributeName="r" values="0; 100" dur="30s" begin="-8s" repeatCount="indefinite" />
+                </circle>
+            </g>
+        </g>
+    </svg>
+  
+    
+</body>
+</html>
