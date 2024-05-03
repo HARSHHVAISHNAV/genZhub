@@ -51,7 +51,7 @@ const getElementVal = (id) => {
 // button redirect function starts from here
 document.addEventListener("DOMContentLoaded", function() {
   // Find the button element by its id
-  var redirectButton = document.getElementById("account");
+  var redirectButton = document.getElementById("profile-photo");
 
   // Add a click event listener to the button
   redirectButton.addEventListener("click", function() {
