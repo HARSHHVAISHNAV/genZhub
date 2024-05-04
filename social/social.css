@@ -141,7 +141,7 @@ body {
     width: 90%;
     height: 65%;
     border-radius: 20px 20px 0px 0px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     
   }
 
@@ -162,7 +162,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   height: 10%;
   width: 20%;
   overflow: visible;
@@ -174,7 +174,7 @@ body {
   }
   .widget-content-two{
     height: 25%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 85%;
   color: black;
   padding-top: 35px;
