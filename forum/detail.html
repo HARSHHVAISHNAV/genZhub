@@ -50,7 +50,7 @@
                 <div class="authors">Author</div>
                 <div class="content">Topic: random topic (Read 1325 Times)</div>
             </div>
-            <div class="body">
+            <div class="body" id="post-123">
                 <div class="authors">
                     <div class="username"><a href="">Username</a></div>
                     <!-- <div>Role</div> -->
@@ -68,7 +68,7 @@
                     Regards Username
 
                     <div class="comment">
-                        <button onclick="showComment()">Comment</button>
+                        <button id="comment-button">Comment</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <!-- comment input  -->
         <div class="comment-area hide" id="comment-area">
             <textarea name="comment" id="" placeholder="comment here ... "></textarea>
-            <input type="submit" name="" id="" value="submit">
+            <input type="submit" name="" data-postid="post-123" id="submit_comment" value="submit">
         </div>
 
         <!-- show comments  -->
@@ -103,7 +103,7 @@
                    Regards Username
 
                    <div class="comment">
-                       <button onclick="showReply()">Reply</button>
+                        <button id="reply-button">Reply</button>
                    </div>
                </div>
            </div>
@@ -111,7 +111,7 @@
         <!-- reply input  -->
         <div class="comment-area hide" id="reply-area">
             <textarea name="comment" id="" placeholder="reply here ... "></textarea>
-            <input type="submit" name="" id="" value="submit">
+            <input type="submit" id="submit_comment" value="Submit">
         </div>
 
 
@@ -123,6 +123,119 @@
         <span>&copy;  SAKEC | All Rights Reserved</span>
     </footer>
 
-    <script src="forum.js"></script>
+    <!-- <script src="forum.js"></script> -->
+    <script type="module">
+        //NavBar
+        function hideIconBar(){
+            var iconBar = document.getElementById("iconBar");
+            var navigation = document.getElementById("navigation");
+            iconBar.setAttribute("style", "display:none;");
+            navigation.classList.remove("hide");
+        }
+
+        function showIconBar(){
+            var iconBar = document.getElementById("iconBar");
+            var navigation = document.getElementById("navigation");
+            iconBar.setAttribute("style", "display:block;");
+            navigation.classList.add("hide");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const commentButton = document.getElementById('comment-button');
+            const replyButton = document.getElementById('reply-button');
+
+            commentButton.addEventListener('click', showComment);
+            replyButton.addEventListener('click', showReply);
+        });
+
+        function showComment(){
+            var commentArea = document.getElementById("comment-area");
+            commentArea.style.display = "block";
+        }
+
+        function showReply(){
+            var replyArea = document.getElementById("reply-area");
+            replyArea.style.display = "block";
+        }
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDPb6O846-piMx9Oby1oi0EpbO_Uh2CcAk",
+            authDomain: "reg-log-3cfe5.firebaseapp.com",
+            projectId: "reg-log-3cfe5",
+            storageBucket: "reg-log-3cfe5.appspot.com",
+            messagingSenderId: "129613168031",
+            appId: "1:129613168031:web:09f7172c3a85d6c27dd1aa"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+        const firestore = getFirestore(app);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const postId = "post-123";  // This should be dynamically determined based on the page or data-attributes
+            fetchAndDisplayComments(postId);
+        });
+
+        async function fetchAndDisplayComments(postId) {
+            const commentsCollection = collection(firestore, "comments");
+            const q = query(commentsCollection, where("postId", "==", postId));
+            const querySnapshot = await getDocs(q);
+            const commentsContainer = document.querySelector('.topic-container');
+            
+            querySnapshot.forEach(doc => {
+                const commentData = doc.data();
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment-body');
+                commentElement.innerHTML = `
+                    <div class="author">${commentData.authorName || 'Anonymous'}</div>
+                    <div class="text">${commentData.text}</div>
+                    <div class="timestamp">${commentData.timestamp.toDate().toLocaleString()}</div>
+                `;
+                commentsContainer.appendChild(commentElement);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const submitButton = document.getElementById('submit_comment');
+            const postId = submitButton.dataset.postid;
+
+            console.log(submitButton);
+            submitButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                submitComment(postId);
+            });
+        });
+
+        async function submitComment(postId) {
+            const commentArea = document.querySelector(`#comment-area textarea`);
+            const commentText = commentArea.value;
+            if (commentText === "") {
+                alert("Please enter a comment.");
+                return;
+            }
+
+            try {
+                const commentsCollection = collection(firestore, "comments");
+                await addDoc(commentsCollection, {
+                    postId: postId,
+                    text: commentText,
+                    timestamp: new Date()
+                });
+                alert("Comment submitted!");
+                commentArea.value = '';
+                fetchAndDisplayComments(postId);
+            } catch (error) {
+                console.error("Error adding comment: ", error);
+                alert("Failed to submit comment.");
+            }
+        }
+
+    </script>
 </body>
 </html>
