@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Add a click event listener to the button
   redirectButton.addEventListener("click", function() {
       // Redirect the user to another page within the same project
-      window.location.href = "../register/login/profile.html"; // Replace "another-page.html" with the path to your desired page
+      window.location.href = "../register/login/main_profile.html"; // Replace "another-page.html" with the path to your desired page
   });
 
   var redirectButtona = document.getElementById("about-us");
@@ -137,3 +137,8 @@ document.getElementById("external-btnb").addEventListener("click", function() {
 });
  
 });
+
+
+// 
+// 
+

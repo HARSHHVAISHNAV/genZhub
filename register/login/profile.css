@@ -4,6 +4,10 @@
     flex-direction: column;
     overflow-x: hidden;
  }
+ a{
+    text-decoration: none;
+    color: black;
+ }
  /* Navbar styles */
  .navbar {
     background-color: #333;
